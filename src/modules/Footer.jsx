@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../components/Logo";
 import { IMAGES } from "../assets/assets";
+import Icon from "../components/Icon";
 
 const Footer = () => {
   return (
@@ -32,18 +33,26 @@ const Footer = () => {
 
         <ul className="links">
           <li>
-            <a href="www.facebook.com">fb</a>
+            <a href="www.facebook.com">
+              <Icon src={IMAGES.facebookIcon} w={48} h={48} />
+            </a>
           </li>
           <li>
-            <a href="www.twitter.com">twitter</a>
+            <a href="www.twitter.com">
+              <Icon src={IMAGES.twitterIcon} w={48} h={48} />
+            </a>
           </li>
           <li>
-            <a href="www.instagram.com">Insta</a>
+            <a href="www.instagram.com">
+              <Icon src={IMAGES.instagramIcon} w={48} h={48} />
+            </a>
           </li>
         </ul>
       </div>
       <div className="copyright">
-        <img src={IMAGES.footerWave} alt="waves" className="bg-image" />
+        <div className="bg-image">
+          <img src={IMAGES.footerWave} alt="waves" className="bg-image" />
+        </div>
         <p>Copyright © 2023. Ikashi Fintech Pvt. Ltd. All right reserved</p>
       </div>
     </footer>

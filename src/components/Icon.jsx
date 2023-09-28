@@ -1,9 +1,10 @@
 import React from "react";
+import { px } from "../utils";
 
 const Icon = ({ w, h, src, alt = "" }) => {
   return (
-    <div className="icon">
-      <img width={w || 40} height={h || 40} src={src} alt={alt} />
+    <div className="icon" style={{ width: px(w), height: px(h) }}>
+      <img src={src} alt={alt} />
     </div>
   );
 };

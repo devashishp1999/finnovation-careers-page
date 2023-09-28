@@ -1,4 +1,13 @@
 /**
+ * @param {Number} value 
+ * @returns {string} "auto" or "<argument>px"
+ */
+export function px(value) {
+  if (value || value === 0) return value + "px";
+  return "auto";
+}
+
+/**
  * Generic QuerySelector
  * @param { String } str Any valid CSS selector
  * @param { Boolean } bool Does "querySelectorAll()" if true else "querySelector()"
@@ -91,7 +100,7 @@ export default function Carousy(el, config = {}) {
   const CC = this;
   // properties
 
-  CC.carousal;
+  // CC.carousal;
   CC.container = createDomElement("div", { id: "d_c_container" });
   CC.btnPrev = createDomElement("button", { id: "d_c_prev" });
   CC.btnNext = createDomElement("button", { id: "d_c_next" });

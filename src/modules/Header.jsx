@@ -11,7 +11,7 @@ const Header = () => {
   }
   return (
     <header>
-      <div class="container">
+      <div className="container">
         <Logo />
 
         <nav className={navShow ? "active" : ""}>
@@ -38,10 +38,10 @@ const Header = () => {
 
         {viewport == "desktop" && <button className="cta">Enrol Now</button>}
 
-        <div class="hamburger-menu" onClick={toggleNav}>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
+        <div className="hamburger-menu" onClick={toggleNav}>
+          <div className="bar"></div>
+          <div className="bar"></div>
+          <div className="bar"></div>
         </div>
       </div>
     </header>
