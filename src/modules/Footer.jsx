@@ -11,7 +11,7 @@ const Footer = () => {
 
         <p>Are you ready?</p>
         <h2>Let’s get started</h2>
-        <button className="action">Get Started</button>
+        <button className="action">Apply Now</button>
 
         <ul className="sitemap">
           <li>

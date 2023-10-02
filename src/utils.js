@@ -1,10 +1,10 @@
 /**
- * @param {Number} value 
+ * @param {Number} value
  * @returns {string} "auto" or "<argument>px"
  */
-export function px(value) {
+export function px(value, fallback = "auto") {
   if (value || value === 0) return value + "px";
-  return "auto";
+  return fallback;
 }
 
 /**
@@ -83,7 +83,6 @@ function defaultCarousyStyle() {
  * @param {String} el Any valid CSS selector
  */
 export default function Carousy(el, config = {}) {
-  // START
   // input check
   if (typeof el !== "string") {
     throw Error(`TypeError: Expected type "string". Got ${typeof el}`);
