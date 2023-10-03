@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import HeroCarousal from "../components/HeroCarousal";
+import ApplyForm from "../components/ApplyForm";
 
 const HeroSection = () => {
+  const [form, setForm] = useState(false);
+
   return (
     <section className="hero">
       <div className="container">
@@ -15,11 +18,13 @@ const HeroSection = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore.
           </p>
-          <button className="action">Apply Now</button>
+          <button onClick={()=>setForm(true)} className="action">Apply Now</button>
         </div>
 
         <HeroCarousal />
       </div>
+
+      {form && <ApplyForm position={""} closeSelf={() => setForm(false)} />}
     </section>
   );
 };

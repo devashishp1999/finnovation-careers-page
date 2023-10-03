@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import OpenPosition from "../components/OpenPosition";
+import ApplyForm from "../components/ApplyForm";
 
 const OpenPositions = () => {
   const [showAll, setShowAll] = useState(false);
+  const [form, setForm] = useState(false);
 
   const openPositions = [
     {
@@ -31,8 +33,8 @@ const OpenPositions = () => {
     },
   ];
 
-  function applyToPosition(id) {
-    console.log(id);
+  function applyToPosition(job) {
+    setForm(job)
 
     // Open Form
   }
@@ -53,7 +55,7 @@ const OpenPositions = () => {
               <OpenPosition
                 key={position.id + i}
                 data={position}
-                apply={() => applyToPosition(position.id)}
+                apply={() => applyToPosition(position.title)}
               />
             ))}
         </div>
@@ -65,6 +67,8 @@ const OpenPositions = () => {
           </p>
         )}
       </div>
+
+      {form && <ApplyForm position={form} closeSelf={() => setForm(false)} />}
     </section>
   );
 };
