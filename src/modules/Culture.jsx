@@ -10,11 +10,6 @@ const Culture = () => {
     <section className="culture">
       <div className="container">
         <h2>Office Culture</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore.
-        </p>
-        <button>Explore more</button>
 
         {viewport === "desktop" ? (
           <div className={"images " + viewport}>
@@ -27,7 +22,7 @@ const Culture = () => {
               </div>
             </div>
 
-            <div className="parts" data-d="25-50-25">
+            <div className="parts" data-d="30-40-30">
               <div className="img">
                 <img src={imgURL + "?3"} />
               </div>
@@ -65,6 +60,8 @@ const Culture = () => {
             </div>
           </div>
         )}
+
+        <button>Explore more</button>
       </div>
     </section>
   );
