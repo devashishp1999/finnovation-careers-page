@@ -78,6 +78,14 @@ let slidesTemplate = [
     text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
     stars: 5,
   },
+  {
+    id: 10,
+    avatar: "",
+    name: "Armando Sallavanti",
+    location: "Moscow, Russia",
+    text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
+    stars: 5,
+  },
 ];
 
 const TestimonialsSlider = () => {
