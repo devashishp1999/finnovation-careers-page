@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../components/Logo";
 import { IMAGES } from "../assets/assets";
 import Icon from "../components/Icon";
+import ApplyForm from "../components/ApplyForm";
 
 const Footer = () => {
+  const [form, setForm] = useState(false);
+
   return (
     <footer>
       <div className="container">
@@ -11,7 +14,7 @@ const Footer = () => {
 
         <p>Are you ready?</p>
         <h2>Let’s get started</h2>
-        <button className="action">Apply Now</button>
+        <button className="action" onClick={setForm}>Apply Now</button>
 
         <ul className="sitemap">
           <li>
@@ -55,6 +58,8 @@ const Footer = () => {
         </div>
         <p>Copyright © 2023. Ikashi Fintech Pvt. Ltd. All right reserved</p>
       </div>
+
+      {form && <ApplyForm position={""} closeSelf={() => setForm(false)} />}
     </footer>
   );
 };

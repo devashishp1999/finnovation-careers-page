@@ -18,9 +18,6 @@ const Culture = () => {
     setTimeout(captureSSAndDisplay);
   }, [viewport]);
 
-  useEffect(() => {
-    console.log(SS);
-  }, [SS]);
   return (
     <section className="culture">
       <div className="container">
