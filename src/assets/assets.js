@@ -25,6 +25,11 @@ import testimonialBG from "./images/tesimonialBG.svg";
 import testimonialBG2 from "./images/testimonialBG2.svg";
 import testimonialEllipse from "./images/testimonialEllipse.svg";
 import arc from "./images/arc.svg";
+import img1 from "./images/img1.jpeg";
+import img2 from "./images/img2.jpeg";
+import img3 from "./images/img3.jpeg";
+import img4 from "./images/img4.jpeg";
+import img5 from "./images/img5.jpeg";
 
 export const IMAGES = {
   logo: logo,
@@ -51,5 +56,7 @@ export const IMAGES = {
   starOutline,
   testimonialBG,
   testimonialBG2,
-  testimonialEllipse,arc
+  testimonialEllipse,
+  arc,
+  images: [img1, img2, img3, img4, img5],
 };
