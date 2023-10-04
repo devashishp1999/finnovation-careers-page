@@ -6,13 +6,78 @@ import useScreenSize from "../hooks/useScreenSize";
 import TestimonialCard from "./TestimonialCard";
 
 let slidesTemplate = [
-  { id: 1, avatar:"", name: "Armando Sallavanti", location:"Moscow, Russia", text:"The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.", stars:4 },
-  { id: 2, avatar:"", name: "Armando Sallavanti", location:"Moscow, Russia", text:"The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.", stars:3 },
-  { id: 3, avatar:"", name: "Armando Sallavanti", location:"Moscow, Russia", text:"The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.", stars:5 },
-  { id: 4, avatar:"", name: "Armando Sallavanti", location:"Moscow, Russia", text:"The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.", stars:4 },
-  { id: 5, avatar:"", name: "Armando Sallavanti", location:"Moscow, Russia", text:"The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.", stars:5 },
-  { id: 6, avatar:"", name: "Armando Sallavanti", location:"Moscow, Russia", text:"The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.", stars:4 },
-  { id: 7, avatar:"", name: "Armando Sallavanti", location:"Moscow, Russia", text:"The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.", stars:5 },
+  {
+    id: 1,
+    avatar: "",
+    name: "Armando Sallavanti",
+    location: "Moscow, Russia",
+    text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
+    stars: 4,
+  },
+  {
+    id: 2,
+    avatar: "",
+    name: "Armando Sallavanti",
+    location: "Moscow, Russia",
+    text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
+    stars: 3,
+  },
+  {
+    id: 3,
+    avatar: "",
+    name: "Armando Sallavanti",
+    location: "Moscow, Russia",
+    text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
+    stars: 5,
+  },
+  {
+    id: 4,
+    avatar: "",
+    name: "Armando Sallavanti",
+    location: "Moscow, Russia",
+    text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
+    stars: 4,
+  },
+  {
+    id: 5,
+    avatar: "",
+    name: "Armando Sallavanti",
+    location: "Moscow, Russia",
+    text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
+    stars: 5,
+  },
+  {
+    id: 6,
+    avatar: "",
+    name: "Armando Sallavanti",
+    location: "Moscow, Russia",
+    text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
+    stars: 4,
+  },
+  {
+    id: 7,
+    avatar: "",
+    name: "Armando Sallavanti",
+    location: "Moscow, Russia",
+    text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
+    stars: 5,
+  },
+  {
+    id: 8,
+    avatar: "",
+    name: "Armando Sallavanti",
+    location: "Moscow, Russia",
+    text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
+    stars: 5,
+  },
+  {
+    id: 9,
+    avatar: "",
+    name: "Armando Sallavanti",
+    location: "Moscow, Russia",
+    text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
+    stars: 5,
+  },
 ];
 
 const TestimonialsSlider = () => {
@@ -30,8 +95,6 @@ const TestimonialsSlider = () => {
     setCount(Math.max(counter - 1, 0));
   }
 
-  // TODO
-  /*
   useEffect(() => {
     if (viewport === "mobile") {
       const newSlides = [];
@@ -42,13 +105,17 @@ const TestimonialsSlider = () => {
     } //
     else setSlides(slidesTemplate);
   }, [viewport]);
-  */
 
   return (
     <div className="carousal">
       <div
         className="slider"
-        style={{ "--w": px(dimen.w), "--h": px(dimen.h), "--gap": px(dimen.g) }}
+        style={{
+          "--w": px(dimen.w),
+          "--h": px(dimen.h),
+          "--gap": px(dimen.g),
+          height: viewport === "mobile" ? `${2 * dimen.h + 20}px` : px(dimen.h),
+        }}
       >
         {slides.map((slide, i) => {
           const isOff = i - counter < 0;
@@ -65,7 +132,14 @@ const TestimonialsSlider = () => {
               className={`slide ${isOff ? "back" : ""} ${active}`}
               style={{ "--offset": px(offset) }}
             >
-              <TestimonialCard info={slide} />
+              {Array.isArray(slide) ? (
+                <>
+                  <TestimonialCard info={slide[0]} />
+                  <TestimonialCard info={slide[1]} />
+                </>
+              ) : (
+                <TestimonialCard info={slide} />
+              )}
             </div>
           );
         })}

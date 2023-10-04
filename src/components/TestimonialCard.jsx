@@ -4,8 +4,19 @@ import { IMAGES } from "../assets/assets";
 import useScreenSize from "../hooks/useScreenSize";
 
 const TestimonialCard = ({ info }) => {
-  const { id, avatar, name, location, text, stars } = info;
   const viewport = useScreenSize();
+
+  if (!info) {
+    return (
+      <div id={"testimonial-x"} className="testimonial_card">
+        <strong>
+          Keep 'EVEN' number of testimonials, to keep the design as intended.
+        </strong>
+      </div>
+    );
+  }
+
+  const { id, avatar, name, location, text, stars } = info;
   const quoteW = viewport == "desktop" ? 48 : 40;
 
   const starsArr = [
