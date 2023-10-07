@@ -93,7 +93,7 @@ const TestimonialsSlider = () => {
   const [slides, setSlides] = useState(slidesTemplate);
 
   const [counter, setCount] = useState(Math.min(2, slides.length - 1)); // value bw 0 & slides.length
-  const dimen = { w: 320, h: 350, g: 20 };
+  const dimen = { w: 320, h: 350, sw: 320 * 0.9, g: 20 };
 
   function nextSlide() {
     setCount(Math.min(counter + 1, slides.length - 1));
@@ -120,25 +120,25 @@ const TestimonialsSlider = () => {
         className="slider"
         style={{
           "--w": px(dimen.w),
+          "--sw": px(dimen.sw),
           "--h": px(dimen.h),
           "--gap": px(dimen.g),
           height: viewport === "mobile" ? `${2 * dimen.h + 20}px` : px(dimen.h),
         }}
       >
         {slides.map((slide, i) => {
-          const isOff = i - counter < 0;
+          const isOff = i - counter < 0 ? "back" : "";
           const active = i - counter === 0 ? "active" : "";
+          const ahead = i - counter > 0 ? "ahead" : undefined;
 
           const offset =
-            (i - counter) * dimen.w +
-            1.5 * dimen.g +
-            (i - counter) * (!isOff ? dimen.g : -1 * (dimen.g / 2));
+            (i - counter) * (dimen.sw + dimen.g) + (ahead ? dimen.w * 0.1 : 0);
 
           return (
             <div
               key={i}
-              className={`slide ${isOff ? "back" : ""} ${active}`}
-              style={{ "--offset": px(offset) }}
+              className={"slide " + (isOff || active || ahead)}
+              style={{ "--offset": px(offset), "--at": Math.abs(i - counter) }}
             >
               {Array.isArray(slide) ? (
                 <>
