@@ -30,6 +30,8 @@ import img2 from "./images/img2.jpeg";
 import img3 from "./images/img3.jpeg";
 import img4 from "./images/img4.jpeg";
 import img5 from "./images/img5.jpeg";
+import userImg from "./images/userImg.svg";
+import location from "./images/location.svg";
 
 export const IMAGES = {
   logo: logo,
@@ -59,4 +61,6 @@ export const IMAGES = {
   testimonialEllipse,
   arc,
   images: [img1, img2, img3, img4, img5],
+  userImg,
+  location
 };

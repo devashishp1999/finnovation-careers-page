@@ -8,7 +8,7 @@ import TestimonialCard from "./TestimonialCard";
 let slidesTemplate = [
   {
     id: 1,
-    avatar: "",
+    avatar: IMAGES.userImg || "",
     name: "Armando Sallavanti",
     location: "Moscow, Russia",
     text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
@@ -16,7 +16,7 @@ let slidesTemplate = [
   },
   {
     id: 2,
-    avatar: "",
+    avatar: IMAGES.userImg || "",
     name: "Armando Sallavanti",
     location: "Moscow, Russia",
     text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
@@ -24,7 +24,7 @@ let slidesTemplate = [
   },
   {
     id: 3,
-    avatar: "",
+    avatar: IMAGES.userImg || "",
     name: "Armando Sallavanti",
     location: "Moscow, Russia",
     text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
@@ -32,7 +32,7 @@ let slidesTemplate = [
   },
   {
     id: 4,
-    avatar: "",
+    avatar: IMAGES.userImg || "",
     name: "Armando Sallavanti",
     location: "Moscow, Russia",
     text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
@@ -40,7 +40,7 @@ let slidesTemplate = [
   },
   {
     id: 5,
-    avatar: "",
+    avatar: IMAGES.userImg || "",
     name: "Armando Sallavanti",
     location: "Moscow, Russia",
     text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
@@ -48,7 +48,7 @@ let slidesTemplate = [
   },
   {
     id: 6,
-    avatar: "",
+    avatar: IMAGES.userImg || "",
     name: "Armando Sallavanti",
     location: "Moscow, Russia",
     text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
@@ -56,7 +56,7 @@ let slidesTemplate = [
   },
   {
     id: 7,
-    avatar: "",
+    avatar: IMAGES.userImg || "",
     name: "Armando Sallavanti",
     location: "Moscow, Russia",
     text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
@@ -64,7 +64,7 @@ let slidesTemplate = [
   },
   {
     id: 8,
-    avatar: "",
+    avatar: IMAGES.userImg || "",
     name: "Armando Sallavanti",
     location: "Moscow, Russia",
     text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
@@ -72,7 +72,7 @@ let slidesTemplate = [
   },
   {
     id: 9,
-    avatar: "",
+    avatar: IMAGES.userImg || "",
     name: "Armando Sallavanti",
     location: "Moscow, Russia",
     text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
@@ -80,7 +80,7 @@ let slidesTemplate = [
   },
   {
     id: 10,
-    avatar: "",
+    avatar: IMAGES.userImg || "",
     name: "Armando Sallavanti",
     location: "Moscow, Russia",
     text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
@@ -92,7 +92,7 @@ const TestimonialsSlider = () => {
   const viewport = useScreenSize();
   const [slides, setSlides] = useState(slidesTemplate);
 
-  const [counter, setCount] = useState(Math.min(2, slides.length - 1)); // 0 to slides.length
+  const [counter, setCount] = useState(Math.min(2, slides.length - 1)); // value bw 0 & slides.length
   const dimen = { w: 320, h: 350, g: 20 };
 
   function nextSlide() {

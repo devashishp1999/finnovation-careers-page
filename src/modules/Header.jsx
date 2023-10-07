@@ -36,7 +36,7 @@ const Header = () => {
           </ul>
         </nav>
 
-        {viewport == "desktop" && <button className="cta">Enrol Now</button>}
+        {viewport == "desktop" && <button className="cta">Apply Now</button>}
 
         <div className="hamburger-menu" onClick={toggleNav}>
           <div className="bar"></div>

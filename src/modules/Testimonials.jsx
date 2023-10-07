@@ -3,15 +3,20 @@ import TestimonialsSlider from "../components/TestimonialsSlider";
 import { IMAGES } from "../assets/assets";
 
 const Testimonials = () => {
-
   return (
     <section className="testimonials">
       <div className="container">
+        <img
+          className="bg_ellipse"
+          src={IMAGES.testimonialEllipse}
+          alt="background style"
+        />
+
         <h2>Testimonials of team</h2>
-        <p>
+        {/* <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore.
-        </p>
+        </p> */}
 
         <TestimonialsSlider />
       </div>

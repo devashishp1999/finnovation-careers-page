@@ -14,6 +14,7 @@ const OpenPositions = () => {
       job_type: "Full-time",
       desc: "You will be expected to lead the company’s entire UI strategy",
       exp: "1-2 Year",
+      location: "Malkapur, MH"
     },
     {
       icon: "",
@@ -22,6 +23,7 @@ const OpenPositions = () => {
       job_type: "Full-time",
       desc: "You will be expected to lead the company’s entire UI strategy",
       exp: "1-2 Year",
+      location: "Malkapur, MH"
     },
     {
       icon: "",
@@ -30,6 +32,7 @@ const OpenPositions = () => {
       job_type: "Full-time",
       desc: "You will be expected to lead the company’s entire UI strategy",
       exp: "1-2 Year",
+      location: "Malkapur, MH"
     },
   ];
 
@@ -43,10 +46,10 @@ const OpenPositions = () => {
     <section className="positions">
       <div className="container">
         <h2>Open Positions</h2>
-        <p>
+        {/* <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore.
-        </p>
+        </p> */}
 
         <div className="cards">
           {openPositions

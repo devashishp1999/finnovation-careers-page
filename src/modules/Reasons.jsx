@@ -12,7 +12,7 @@ const Reasons = () => {
     {
       icon: IMAGES.build,
       title: "Join Our “Build From Rural Mission”",
-      desc: "Work From Nature.",
+      desc: "Work With Nature.",
     },
     {
       icon: IMAGES.salary,
@@ -21,7 +21,7 @@ const Reasons = () => {
     },
     {
       icon: IMAGES.days,
-      title: "5 Days Week.",
+      title: "5 Days Work Week.",
       desc: "Saturday and Sunday off.",
     },
   ];
