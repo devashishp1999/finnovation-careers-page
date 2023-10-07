@@ -20,8 +20,7 @@ const Timeline = () => {
           <div style={{ "--i": 1 }}>
             <h3>2019</h3>
             <p>
-              Crossed 5 Lakh YT subscribers & started brokerage comparison
-              platform
+              Crossed 5 Lakh YT subscribers
             </p>
             <span className="line2">
               <img src={IMAGES.timeline2} alt="lines" />
@@ -29,14 +28,14 @@ const Timeline = () => {
           </div>
           <div style={{ "--i": 0 }}>
             <h3>2020</h3>
-            <p>Crossed 1 Mn YT Subs & 10,000 paid users</p>
+            <p>Crossed 1 Mn YT Subs & 10,000 paid learners</p>
             <span className="line2">
               <img src={IMAGES.timeline3} alt="lines" />
             </span>
           </div>
           <div style={{ "--i": 1 }}>
             <h3>2021</h3>
-            <p>Enhanced my business</p>
+            <p>Started mutual fund aggregator for corporates</p>
             <span className="line2">
               <img src={IMAGES.timeline2} alt="lines" />
             </span>

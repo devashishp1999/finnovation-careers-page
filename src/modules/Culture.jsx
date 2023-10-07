@@ -22,10 +22,10 @@ const Culture = () => {
     <section className="culture">
       <div className="container">
         <h2>Office Culture</h2>
-        <p>
+        {/* <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore.
-        </p>
+        </p> */}
         <div id="images_wrapper">
           <img className="before" src={SS} alt="before image" />
 

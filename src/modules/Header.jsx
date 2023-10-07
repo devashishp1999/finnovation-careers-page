@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Logo from "../components/Logo";
 import useScreenSize from "../hooks/useScreenSize";
+import ApplyForm from "../components/ApplyForm";
 
 const Header = () => {
-  const [navShow, setNavShow] = useState(false);
   const viewport = useScreenSize();
+  const [navShow, setNavShow] = useState(false);
+  const [isForm, openForm] = useState(false);
 
   function toggleNav() {
     setNavShow(!navShow);
@@ -30,13 +32,17 @@ const Header = () => {
             </li>
             <li>
               {viewport == "mobile" && (
-                <button className="cta">Enrol Now</button>
+                <button className="cta" onClick={openForm}>Enrol Now</button>
               )}
             </li>
           </ul>
         </nav>
 
-        {viewport == "desktop" && <button className="cta">Apply Now</button>}
+        {viewport == "desktop" && (
+          <button className="cta" onClick={openForm}>
+            Apply Now
+          </button>
+        )}
 
         <div className="hamburger-menu" onClick={toggleNav}>
           <div className="bar"></div>
@@ -44,6 +50,8 @@ const Header = () => {
           <div className="bar"></div>
         </div>
       </div>
+
+      {isForm && <ApplyForm position={""} closeSelf={() => openForm(false)} />}
     </header>
   );
 };

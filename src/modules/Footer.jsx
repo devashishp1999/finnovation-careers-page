@@ -5,7 +5,7 @@ import Icon from "../components/Icon";
 import ApplyForm from "../components/ApplyForm";
 
 const Footer = () => {
-  const [form, setForm] = useState(false);
+  const [isForm, openForm] = useState(false);
 
   return (
     <footer>
@@ -14,7 +14,9 @@ const Footer = () => {
 
         <p>Are you ready?</p>
         <h2>Let’s get started</h2>
-        <button className="action" onClick={setForm}>Apply Now</button>
+        <button className="action" onClick={openForm}>
+          Apply Now
+        </button>
 
         <ul className="sitemap">
           <li>
@@ -59,7 +61,7 @@ const Footer = () => {
         <p>Copyright © 2023. Ikashi Fintech Pvt. Ltd. All right reserved</p>
       </div>
 
-      {form && <ApplyForm position={""} closeSelf={() => setForm(false)} />}
+      {isForm && <ApplyForm position={""} closeSelf={() => openForm(false)} />}
     </footer>
   );
 };
