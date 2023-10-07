@@ -129,7 +129,7 @@ const TestimonialsSlider = () => {
         {slides.map((slide, i) => {
           const isOff = i - counter < 0 ? "back" : "";
           const active = i - counter === 0 ? "active" : "";
-          const ahead = i - counter > 0 ? "ahead" : undefined;
+          const ahead = i - counter > 0 ? "ahead" : "";
 
           const offset =
             (i - counter) * (dimen.sw + dimen.g) + (ahead ? dimen.w * 0.1 : 0);
