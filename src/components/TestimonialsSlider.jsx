@@ -142,11 +142,11 @@ const TestimonialsSlider = () => {
             >
               {Array.isArray(slide) ? (
                 <>
-                  <TestimonialCard info={slide[0]} />
-                  <TestimonialCard info={slide[1]} />
+                  <TestimonialCard info={slide[0]} clickCard={() => setCount(i)} />
+                  <TestimonialCard info={slide[1]} clickCard={() => setCount(i)} />
                 </>
               ) : (
-                <TestimonialCard info={slide} />
+                <TestimonialCard info={slide} clickCard={() => setCount(i)} />
               )}
             </div>
           );

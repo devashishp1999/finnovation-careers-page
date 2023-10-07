@@ -3,7 +3,7 @@ import Icon from "./Icon";
 import { IMAGES } from "../assets/assets";
 import useScreenSize from "../hooks/useScreenSize";
 
-const TestimonialCard = ({ info }) => {
+const TestimonialCard = ({ info, clickCard = () => {} }) => {
   const viewport = useScreenSize();
 
   if (!info) {
@@ -25,7 +25,11 @@ const TestimonialCard = ({ info }) => {
   ];
 
   return (
-    <div id={"testimonial-" + id} className="testimonial_card">
+    <div
+      id={"testimonial-" + id}
+      className="testimonial_card"
+      onClick={clickCard}
+    >
       <Icon src={IMAGES.quote} w={quoteW} h={quoteW} />
       <div className="user">
         <div className="avatar">
