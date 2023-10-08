@@ -544,7 +544,8 @@ main {
     .cards {
       margin-top: 24px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr));
+      // grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr));
+      grid-template-columns: 1fr 1fr;
       gap: 20px;
 
       .card {
@@ -874,6 +875,12 @@ main {
       }
     }
 
+    .reasons .container .cards {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
     .culture .container {
       button {
         order: unset;
@@ -1066,6 +1073,7 @@ footer {
 }
 
 .icon {
+  display: block;
   width: 2rem;
   height: 2rem;
   img {

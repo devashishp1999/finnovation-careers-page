@@ -20,8 +20,8 @@ const TestimonialCard = ({ info, clickCard = () => {} }) => {
   const quoteW = viewport == "desktop" ? 48 : 40;
 
   const starsArr = [
-    ...new Array(5).fill(<Icon src={IMAGES.starFilled} w={20} />),
-    ...new Array(5).fill(<Icon src={IMAGES.starOutline} w={20} />),
+    ...new Array(stars).fill("starFilled"),
+    ...new Array(5 - stars).fill("starOutline"),
   ];
 
   return (
@@ -51,7 +51,9 @@ const TestimonialCard = ({ info, clickCard = () => {} }) => {
       <p>{text}</p>
 
       <div className="stars">
-        {[...starsArr.slice(0, stars), starsArr.slice(5, 10 - stars)]}
+        {starsArr.map((star, i) => (
+          <Icon key={i} src={IMAGES[star]} w={20} />
+        ))}
       </div>
     </div>
   );

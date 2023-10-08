@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import useScreenSize from "../hooks/useScreenSize";
 import html2canvas from "html2canvas";
 import { IMAGES } from "../assets/assets";
+import { $ } from "../utils";
 
 const imgURL = IMAGES.images;
 
@@ -10,7 +11,7 @@ const Culture = () => {
   const [SS, setSS] = useState("");
 
   function captureSSAndDisplay() {
-    const el = document.querySelector("#images_wrapper .images");
+    const el = $("#images_wrapper .images");
     html2canvas(el).then((can) => setSS(can.toDataURL("image/png")));
   }
 

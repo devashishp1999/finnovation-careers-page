@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { IMAGES } from "../assets/assets";
 import Icon from "./Icon";
-import { px } from "../utils";
+import { SwipeCarousel, px } from "../utils";
 import useScreenSize from "../hooks/useScreenSize";
 import TestimonialCard from "./TestimonialCard";
 
@@ -91,6 +91,9 @@ let slidesTemplate = [
 const TestimonialsSlider = () => {
   const viewport = useScreenSize();
   const [slides, setSlides] = useState(slidesTemplate);
+  const [swiper, setSwiper] = useState(new SwipeCarousel());
+
+  const carousalRef = useRef();
 
   const [counter, setCount] = useState(Math.min(2, slides.length - 1)); // value bw 0 & slides.length
   const dimen = { w: 320, h: 350, sw: 320 * 0.9, g: 20 };
@@ -103,6 +106,9 @@ const TestimonialsSlider = () => {
     setCount(Math.max(counter - 1, 0));
   }
 
+  swiper.onSwipeRight = prevSlide;
+  swiper.onSwipeLeft = nextSlide;
+
   useEffect(() => {
     if (viewport === "mobile") {
       const newSlides = [];
@@ -114,8 +120,14 @@ const TestimonialsSlider = () => {
     else setSlides(slidesTemplate);
   }, [viewport]);
 
+  useEffect(() => {
+    if (carousalRef.current) {
+      setSwiper(new SwipeCarousel(carousalRef.current, 80));
+    }
+  }, []);
+
   return (
-    <div className="carousal">
+    <div className="carousal" ref={carousalRef}>
       <div
         className="slider"
         style={{

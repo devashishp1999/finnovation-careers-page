@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { IMAGES } from "../assets/assets";
 import Icon from "./Icon";
-import { px } from "../utils";
+import { SwipeCarousel, px } from "../utils";
 import useScreenSize from "../hooks/useScreenSize";
 
 const imgArr = IMAGES.cImage;
@@ -16,18 +16,30 @@ const slides = [
 const HeroCarousal = () => {
   const viewport = useScreenSize();
   const [counter, setCount] = useState(1); // 0 to slides.length
-  const [dimen, setDimensions] = useState({ w: 320, h: 470, g: 20 });
+  const [dimen] = useState({ w: 320, h: 470, g: 20 });
+  const [swiper, setSwiper] = useState(new SwipeCarousel());
+
+  const carousalRef = useRef();
 
   function nextSlide() {
     setCount(Math.min(counter + 1, slides.length - 1));
-    // setCount(counter >= slides.length - 1 ? 0 : counter + 1);
   }
   function prevSlide() {
     setCount(Math.max(counter - 1, 0));
   }
 
+  swiper.onSwipeRight = prevSlide;
+  swiper.onSwipeLeft = nextSlide;
+
+  useEffect(() => {
+    if (carousalRef.current) {
+      setSwiper(new SwipeCarousel(carousalRef.current, 80));
+    }
+  }, []);
+
   return (
-    <div className="carousal">
+    <div className="carousal" ref={carousalRef}>
+      <p id="msg"></p>
       <div
         className="slider"
         style={{ "--w": px(dimen.w), "--h": px(dimen.h), "--gap": px(dimen.g) }}
