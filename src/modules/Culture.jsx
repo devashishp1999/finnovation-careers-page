@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import useScreenSize from "../hooks/useScreenSize";
 import html2canvas from "html2canvas";
 import { IMAGES } from "../assets/assets";
-import { $ } from "../utils";
+import { $ } from "utils-deva";
 
 const imgURL = IMAGES.images;
 

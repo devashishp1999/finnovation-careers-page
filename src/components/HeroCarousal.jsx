@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { IMAGES } from "../assets/assets";
 import Icon from "./Icon";
-import { SwipeCarousel, px } from "../utils";
+import { SwipeCarousel, px } from "utils-deva";
 import useScreenSize from "../hooks/useScreenSize";
 
 const imgArr = IMAGES.cImage;

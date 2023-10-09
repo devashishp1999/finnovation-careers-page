@@ -1,5 +1,5 @@
 import React from "react";
-import { px } from "../utils";
+import { px } from "utils-deva";
 
 const Icon = ({ w, h, src, alt = "" }) => {
   return (
