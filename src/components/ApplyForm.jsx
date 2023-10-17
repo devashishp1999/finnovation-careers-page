@@ -24,10 +24,12 @@ const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
     applyForJob(formData)
       .then((result) => {
         showToast("Job application successful", "#48e048");
+        closeSelf();
       })
       .catch((error) => {
         showToast("An error occurred", "red");
         console.log(error);
+        closeSelf();
       });
   }
 
@@ -42,7 +44,7 @@ const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
   function showToast(text, color) {
     toast.show({
       text: text,
-      position: "top right",
+      position: "bottom center",
       duration: 3,
       styles: {
         backgroundColor: color,
