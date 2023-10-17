@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Icon from "./Icon";
 import { IMAGES } from "../assets/assets";
+import { applyForJob } from "../api/jobs";
+import { Toast } from "utils-deva";
 
 const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
+  const toast = new Toast();
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -14,11 +18,17 @@ const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
 
   const positions = ["Visual Designer", "Developer", "Product Designer"];
 
-  function submitForm(e) {
+  async function submitForm(e) {
     e.preventDefault();
 
-    // Log the form data
-    console.log("Form Data:", formData);
+    applyForJob(formData)
+      .then((result) => {
+        showToast("Job application successful", "#48e048");
+      })
+      .catch((error) => {
+        showToast("An error occurred", "red");
+        console.log(error);
+      });
   }
 
   function handleInputChange(e) {
@@ -26,6 +36,19 @@ const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
     setFormData({
       ...formData,
       [name]: name === "resume" ? files[0] : value,
+    });
+  }
+
+  function showToast(text, color) {
+    toast.show({
+      text: text,
+      position: "top right",
+      duration: 3,
+      styles: {
+        backgroundColor: color,
+        color: "white",
+        fontSize: "14px",
+      },
     });
   }
 

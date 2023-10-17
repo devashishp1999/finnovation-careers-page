@@ -1202,12 +1202,14 @@ button.action {
 
     form {
       padding: 24px 32px;
-      @include colFlex();
+      display: flex;
+      flex-wrap: wrap;
       gap: 20px;
 
       .input-field {
         position: relative;
         min-height: 44px;
+        width: 100%;
 
         input,
         textarea,
@@ -1276,6 +1278,12 @@ button.action {
         width: 200px;
         margin-inline: auto;
       }
+    }
+  }
+
+  @media (min-width: 992px) {
+    .form_container form .input-field:has([name="phone"], [name="email"]){
+      width: calc(50% - 10px);
     }
   }
 }

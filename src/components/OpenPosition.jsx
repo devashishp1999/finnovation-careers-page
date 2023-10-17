@@ -3,17 +3,18 @@ import Icon from "./Icon";
 import { IMAGES } from "../assets/assets";
 
 const OpenPosition = ({ data, apply = () => {} }) => {
-  const { id, icon, title, job_type, desc, exp, location } = data;
+  const { id, icon, job_title, city, job_type, details, min_exp, max_exp } = data;
+  const exp = `${min_exp}-${max_exp} Years`;
 
   return (
-    <div id={id} className="card">
+    <div id={"job:"+id} className="card">
       <div>
         <Icon src={icon || IMAGES.jobIcon} w={50} />
-        <h3>{title}</h3>
+        <h3>{job_title}</h3>
         <p>{job_type}</p>
-        <p>{desc}</p>
+        <p>{details}</p>
         <p className="loc">
-          <Icon src={IMAGES.location} h={16} /> {location ?? "--"}
+          <Icon src={IMAGES.location} h={16} /> {city ?? "--"}
         </p>
       </div>
 
