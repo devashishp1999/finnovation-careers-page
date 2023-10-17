@@ -21,9 +21,16 @@ const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
   async function submitForm(e) {
     e.preventDefault();
 
-    applyForJob(formData)
+    const data = new FormData();
+
+    for (const key in formData) {
+      data.append(key, formData[key]);
+    }
+
+    applyForJob(data)
       .then((result) => {
         showToast("Job application successful", "#48e048");
+        console.log("job success", result);
         closeSelf();
       })
       .catch((error) => {

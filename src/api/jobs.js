@@ -37,7 +37,7 @@ export async function applyForJob(data) {
     const response = await fetch(`${base}/v1/applyJob`, {
       method: "POST",
       headers: myHeaders,
-      body: JSON.stringify(data),
+      body: data,
     });
     const result = await response.json();
 
