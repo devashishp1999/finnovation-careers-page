@@ -25,13 +25,23 @@ import testimonialBG from "./images/tesimonialBG.svg";
 import testimonialBG2 from "./images/testimonialBG2.svg";
 import testimonialEllipse from "./images/testimonialEllipse.svg";
 import arc from "./images/arc.svg";
-import img1 from "./images/img1.jpeg";
-import img2 from "./images/img2.jpeg";
-import img3 from "./images/img3.jpeg";
-import img4 from "./images/img4.jpeg";
-import img5 from "./images/img5.jpeg";
 import userImg from "./images/userImg.svg";
 import location from "./images/location.svg";
+
+import img1 from "./officeImages/img1.JPG";
+import img2 from "./officeImages/img2.JPG";
+import img3 from "./officeImages/img3.jpg";
+import img4 from "./officeImages/img4.jpg";
+import img5 from "./officeImages/img5.jpg";
+import img6 from "./officeImages/img6.jpg";
+import img7 from "./officeImages/img7.jpg";
+import img8 from "./officeImages/img8.jpg";
+import img9 from "./officeImages/img9.jpg";
+import img10 from "./officeImages/img10.jpg";
+import img11 from "./officeImages/img11.jpg";
+import img12 from "./officeImages/img12.jpg";
+import img13 from "./officeImages/img13.jpg";
+import img14 from "./officeImages/img14.jpg";
 
 export const IMAGES = {
   logo: logo,
@@ -60,7 +70,7 @@ export const IMAGES = {
   testimonialBG2,
   testimonialEllipse,
   arc,
-  images: [img1, img2, img3, img4, img5],
+  images: [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14],
   userImg,
   location
 };

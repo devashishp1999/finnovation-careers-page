@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Icon from "./Icon";
 import { IMAGES } from "../assets/assets";
-import { applyForJob } from "../api/jobs";
+import { applyForJob } from "../resources/jobsApi";
 import { Toast } from "utils-deva";
 
 const ApplyForm = ({ position = "", closeSelf = () => {} }) => {

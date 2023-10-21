@@ -4,93 +4,11 @@ import Icon from "./Icon";
 import { SwipeCarousel, px } from "utils-deva";
 import useScreenSize from "../hooks/useScreenSize";
 import TestimonialCard from "./TestimonialCard";
-
-let slidesTemplate = [
-  {
-    id: 1,
-    avatar: IMAGES.userImg || "",
-    name: "Armando Sallavanti",
-    location: "Moscow, Russia",
-    text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
-    stars: 4,
-  },
-  {
-    id: 2,
-    avatar: IMAGES.userImg || "",
-    name: "Armando Sallavanti",
-    location: "Moscow, Russia",
-    text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
-    stars: 3,
-  },
-  {
-    id: 3,
-    avatar: IMAGES.userImg || "",
-    name: "Armando Sallavanti",
-    location: "Moscow, Russia",
-    text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
-    stars: 5,
-  },
-  {
-    id: 4,
-    avatar: IMAGES.userImg || "",
-    name: "Armando Sallavanti",
-    location: "Moscow, Russia",
-    text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
-    stars: 4,
-  },
-  {
-    id: 5,
-    avatar: IMAGES.userImg || "",
-    name: "Armando Sallavanti",
-    location: "Moscow, Russia",
-    text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
-    stars: 5,
-  },
-  {
-    id: 6,
-    avatar: IMAGES.userImg || "",
-    name: "Armando Sallavanti",
-    location: "Moscow, Russia",
-    text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
-    stars: 4,
-  },
-  {
-    id: 7,
-    avatar: IMAGES.userImg || "",
-    name: "Armando Sallavanti",
-    location: "Moscow, Russia",
-    text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
-    stars: 5,
-  },
-  {
-    id: 8,
-    avatar: IMAGES.userImg || "",
-    name: "Armando Sallavanti",
-    location: "Moscow, Russia",
-    text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
-    stars: 5,
-  },
-  {
-    id: 9,
-    avatar: IMAGES.userImg || "",
-    name: "Armando Sallavanti",
-    location: "Moscow, Russia",
-    text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
-    stars: 5,
-  },
-  {
-    id: 10,
-    avatar: IMAGES.userImg || "",
-    name: "Armando Sallavanti",
-    location: "Moscow, Russia",
-    text: "The most helpful course I've ever taken. Clears out the noise. Focuses you in on absolute essentials. Priceless.",
-    stars: 5,
-  },
-];
+import { testimonials as slidesData } from "../resources/data.json";
 
 const TestimonialsSlider = () => {
   const viewport = useScreenSize();
-  const [slides, setSlides] = useState(slidesTemplate);
+  const [slides, setSlides] = useState(slidesData);
   const [swiper, setSwiper] = useState(new SwipeCarousel());
 
   const carousalRef = useRef();
@@ -112,12 +30,12 @@ const TestimonialsSlider = () => {
   useEffect(() => {
     if (viewport === "mobile") {
       const newSlides = [];
-      for (let i = 0; i < slidesTemplate.length; i += 2) {
-        newSlides.push([slidesTemplate[i], slidesTemplate[i + 1]]);
+      for (let i = 0; i < slidesData.length; i += 2) {
+        newSlides.push([slidesData[i], slidesData[i + 1]]);
       }
       setSlides(newSlides);
     } //
-    else setSlides(slidesTemplate);
+    else setSlides(slidesData);
   }, [viewport]);
 
   useEffect(() => {
@@ -154,8 +72,14 @@ const TestimonialsSlider = () => {
             >
               {Array.isArray(slide) ? (
                 <>
-                  <TestimonialCard info={slide[0]} clickCard={() => setCount(i)} />
-                  <TestimonialCard info={slide[1]} clickCard={() => setCount(i)} />
+                  <TestimonialCard
+                    info={slide[0]}
+                    clickCard={() => setCount(i)}
+                  />
+                  <TestimonialCard
+                    info={slide[1]}
+                    clickCard={() => setCount(i)}
+                  />
                 </>
               ) : (
                 <TestimonialCard info={slide} clickCard={() => setCount(i)} />

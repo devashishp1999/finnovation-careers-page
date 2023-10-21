@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import useScreenSize from "../hooks/useScreenSize";
 import html2canvas from "html2canvas";
-import { IMAGES } from "../assets/assets";
 import { $ } from "utils-deva";
-
-const imgURL = IMAGES.images;
+import { companyCultureImages as images } from "../resources/data.json";
 
 const Culture = () => {
   const viewport = useScreenSize();
@@ -34,21 +32,21 @@ const Culture = () => {
             <div className={"images " + viewport}>
               <div className="parts" data-d="50-50">
                 <div className="img">
-                  <img src={imgURL[0]} />
+                  <img src={images[0]} />
                 </div>
                 <div className="img">
-                  <img src={imgURL[1]} />
+                  <img src={images[1]} />
                 </div>
               </div>
               <div className="parts" data-d="30-40-30">
                 <div className="img">
-                  <img src={imgURL[2]} />
+                  <img src={images[2]} />
                 </div>
                 <div className="img">
-                  <img src={imgURL[3]} />
+                  <img src={images[3]} />
                 </div>
                 <div className="img">
-                  <img src={imgURL[4]} />
+                  <img src={images[4]} />
                 </div>
               </div>
             </div>
@@ -56,24 +54,24 @@ const Culture = () => {
             <div id="images_container" className={"images " + viewport}>
               <div className="parts" data-d="60-40">
                 <div className="img">
-                  <img src={imgURL[0]} />
+                  <img src={images[0]} />
                 </div>
                 <div className="img">
-                  <img src={imgURL[1]} />
+                  <img src={images[1]} />
                 </div>
               </div>
               <div className="parts" data-d="40-60">
                 <div className="img">
-                  <img src={imgURL[2]} />
+                  <img src={images[2]} />
                 </div>
                 <div className="img">
-                  <img src={imgURL[3]} />
+                  <img src={images[3]} />
                 </div>
               </div>
 
               <div className="parts" data-d="100">
                 <div className="img">
-                  <img src={imgURL[4]} />
+                  <img src={images[4]} />
                 </div>
               </div>
             </div>

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import OpenPosition from "../components/OpenPosition";
 import ApplyForm from "../components/ApplyForm";
 import MyContext from "../contextApi/MyContext";
-import { getJobs } from "../api/jobs";
+import { getJobs } from "../resources/jobsApi";
 
 const OpenPositions = () => {
   const [showAll, setShowAll] = useState(false);
@@ -16,6 +16,7 @@ const OpenPositions = () => {
 
   useEffect(() => {
     getJobs(setJobsData);
+    // eslint-disable-next-line
   }, []);
 
   return (
