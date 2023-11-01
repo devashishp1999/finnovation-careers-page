@@ -41,7 +41,7 @@ const TestimonialCard = ({ info, clickCard = () => {} }) => {
           />
         </div>
         <div className="info">
-          <h4>{name}</h4>
+          <h3>{name}</h3>
           <p>{location}</p>
         </div>
       </div>

@@ -14,42 +14,52 @@ const Footer = () => {
 
         <p>Are you ready?</p>
         <h2>Let’s get started</h2>
-        <button className="action" onClick={openForm}>
+        <button className="action" onClick={openForm} aria-label="Open apply now form">
           Apply Now
         </button>
 
         <ul className="sitemap">
           <li>
-            <a href="#">Home</a>
+            <a href="#" aria-label="Go to Home page">Home</a>
           </li>
           <li>
-            <a href="#">Instructor</a>
+            <a href="#" aria-label="Go to Instructor page">Instructor</a>
           </li>
           <li>
-            <a href="#">Our Pricing</a>
+            <a href="#" aria-label="Go to Our Pricing page">Our Pricing</a>
           </li>
           <li>
-            <a href="#">Testimonials</a>
+            <a href="#" aria-label="Go to Testimonials page">Testimonials</a>
           </li>
           <li>
-            <a href="#">FAQ</a>
+            <a href="#" aria-label="Go to FAQ page">FAQ</a>
           </li>
         </ul>
 
         <ul className="links">
           <li>
-            <a href="www.facebook.com">
+            <a href="www.linkedin.com" aria-label="Open company linkedIn page">
+              <Icon src={IMAGES.linkedinIcon} w={48} h={48} />
+            </a>
+          </li>
+          <li>
+            <a href="www.facebook.com" aria-label="Open company facebook page">
               <Icon src={IMAGES.facebookIcon} w={48} h={48} />
             </a>
           </li>
           <li>
-            <a href="www.twitter.com">
+            <a href="www.twitter.com" aria-label="Open company twitter page">
               <Icon src={IMAGES.twitterIcon} w={48} h={48} />
             </a>
           </li>
           <li>
-            <a href="www.instagram.com">
+            <a href="www.instagram.com" aria-label="Open company instagram page">
               <Icon src={IMAGES.instagramIcon} w={48} h={48} />
+            </a>
+          </li>
+          <li>
+            <a href="www.youtube.com" aria-label="Open company youtube channel">
+              <Icon src={IMAGES.youtubeIcon} w={48} h={48} />
             </a>
           </li>
         </ul>

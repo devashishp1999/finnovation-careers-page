@@ -1,76 +1,53 @@
-import logo from "./images/logo.svg";
-import facebook from "./images/facebook.svg";
-import twitter from "./images/twitter.svg";
-import instagram from "./images/instagram.svg";
-import footerWaves from "./images/footerwaves.svg";
-import job_icon from "./images/job_icon.svg";
-import accomodation from "./images/accomodation.svg";
-import build from "./images/build.svg";
-import days from "./images/days.svg";
-import salary from "./images/salary.svg";
-import arrowBack from "./images/arrowBack.svg";
-import arrowNext from "./images/arrowNext.svg";
-import closeIcon from "./images/closeIcon.svg";
-import attachFile from "./images/attachFIle.svg";
-import c_image1 from "./images/c_image1.jpeg";
-import c_image2 from "./images/c_image2.jpeg";
-import timeline1 from "./images/timeline1.svg";
-import timeline2 from "./images/timeline2.svg";
-import timeline3 from "./images/timeline3.svg";
-import map from "./images/map.svg";
-import quote from "./images/quote.svg";
-import starFilled from "./images/starFilled.svg";
-import starOutline from "./images/starOutline.svg";
-import testimonialBG from "./images/tesimonialBG.svg";
-import testimonialBG2 from "./images/testimonialBG2.svg";
-import testimonialEllipse from "./images/testimonialEllipse.svg";
-import arc from "./images/arc.svg";
-import userImg from "./images/userImg.svg";
-import location from "./images/location.svg";
-
-import img1 from "./officeImages/img1.JPG";
-import img2 from "./officeImages/img2.JPG";
-import img3 from "./officeImages/img3.jpg";
-import img4 from "./officeImages/img4.jpg";
-import img5 from "./officeImages/img5.jpg";
-import img6 from "./officeImages/img6.jpg";
-import img7 from "./officeImages/img7.jpg";
-import img8 from "./officeImages/img8.jpg";
-import img9 from "./officeImages/img9.jpg";
-import img10 from "./officeImages/img10.jpg";
-import img11 from "./officeImages/img11.jpg";
-import img12 from "./officeImages/img12.jpg";
-import img13 from "./officeImages/img13.jpg";
-import img14 from "./officeImages/img14.jpg";
+const img = (name) => require(`./images/${name}`);
+const oImg = (name) => require(`./officeImages/${name}`);
 
 export const IMAGES = {
-  logo: logo,
-  footerWave: footerWaves,
-  facebookIcon: facebook,
-  twitterIcon: twitter,
-  instagramIcon: instagram,
-  jobIcon: job_icon,
-  accomodation,
-  salary,
-  days,
-  build,
-  cImage: [c_image1, c_image2],
-  arrowBack,
-  arrowNext,
-  closeIcon,
-  attachFile,
-  map,
-  timeline1,
-  timeline2,
-  timeline3,
-  quote,
-  starFilled,
-  starOutline,
-  testimonialBG,
-  testimonialBG2,
-  testimonialEllipse,
-  arc,
-  images: [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14],
-  userImg,
-  location
+  logo: img("logo.svg"),
+  footerWave: img("footerwaves.svg"),
+  linkedinIcon: img("linkedin.svg"),
+  facebookIcon: img("facebook.svg"),
+  twitterIcon: img("twitter.svg"),
+  instagramIcon: img("instagram.svg"),
+  youtubeIcon: img("youtube.svg"),
+  jobIcon: img("job_icon.svg"),
+  jobPageIcon: img("job_page_icon.svg"),
+  accomodation: img("accomodation.svg"),
+  salary: img("salary.svg"),
+  days: img("days.svg"),
+  build: img("build.svg"),
+  cImage: [img("c_image1.jpeg"), img("c_image2.jpeg")],
+  arrowBack: img("arrowBack.svg"),
+  arrowNext: img("arrowNext.svg"),
+  closeIcon: img("closeIcon.svg"),
+  attachFile: img("attachFIle.svg"),
+  map: img("map.svg"),
+  timeline1: img("timeline1.svg"),
+  timeline2: img("timeline2.svg"),
+  timeline3: img("timeline3.svg"),
+  quote: img("quote.svg"),
+  starFilled: img("starFilled.svg"),
+  starOutline: img("starOutline.svg"),
+  testimonialBG: img("tesimonialBG.svg"),
+  testimonialBG2: img("testimonialBG2.svg"),
+  testimonialEllipse: img("testimonialEllipse.svg"),
+  arc: img("arc.svg"),
+  userImg: img("userImg.svg"),
+  location: img("location.svg"),
+  shareIcon: img("share_icon.svg"),
+  officeImages: [
+    oImg("img1.JPG"),
+    oImg("img2.JPG"),
+    oImg("img3.jpg"),
+    oImg("img4.jpg"),
+    oImg("img5.jpg"),
+    oImg("img6.jpg"),
+    oImg("img7.jpg"),
+    oImg("img8.jpg"),
+    oImg("img9.jpg"),
+    oImg("img10.jpg"),
+    oImg("img11.jpg"),
+    oImg("img12.jpg"),
+    oImg("img13.jpg"),
+    oImg("img14.jpg"),
+  ],
 };

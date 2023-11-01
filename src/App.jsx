@@ -1,35 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { Suspense } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 // Sections
 import Header from "./modules/Header";
 import Footer from "./modules/Footer";
-import useScreenSize from "./hooks/useScreenSize";
-import HeroSection from "./modules/HeroSection";
-import OpenPositions from "./modules/OpenPositions";
-import Reasons from "./modules/Reasons";
-import Testimonials from "./modules/Testimonials";
-import Culture from "./modules/Culture";
-import Timeline from "./modules/Timeline";
-import ApplyForm from "./components/ApplyForm";
+import AppBody from "./AppBody";
+import CareersPage from "./pages/CareersPage";
+import JobDetailsPage from "./pages/JobDetailsPage";
 
 const App = () => {
-  const viewport = useScreenSize(); // 'mobile | desktop'
-
   return (
-    <>
+    <BrowserRouter>
       <Header />
-
-      <main className={viewport}>
-        <HeroSection />
-        <OpenPositions />
-        <Testimonials />
-        <Reasons />
-        <Culture />
-        <Timeline />
-      </main>
-
+      <Suspense fallback={<h3 className="center_pad">Loading...</h3>}>
+        <Routes>
+          <Route path="/" element={<AppBody />}>
+            <Route index element={<span className="center_pad">Home</span>} />
+            <Route path="careers" element={<CareersPage />} />
+            <Route path="careers/:jobId" element={<JobDetailsPage />} />
+            <Route
+              path="*"
+              element={<h3 className="center_pad">404 Not Found</h3>}
+            />
+          </Route>
+        </Routes>
+      </Suspense>
       <Footer />
-    </>
+    </BrowserRouter>
   );
 };
 

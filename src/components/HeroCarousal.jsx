@@ -64,13 +64,13 @@ const HeroCarousal = () => {
                   : { "--offset": px(!isOff ? offset : 0) }),
               }}
             >
-              <img src={img} alt="slide image" />
+              <img src={img} alt="slide image" loading="lazy" />
             </div>
           );
         })}
       </div>
       <div className="controls">
-        <button onClick={prevSlide}>
+        <button onClick={prevSlide} aria-label="Previous slide">
           <Icon src={IMAGES.arrowBack} />
         </button>
         <div className="index">
@@ -82,7 +82,7 @@ const HeroCarousal = () => {
             />
           ))}
         </div>
-        <button onClick={nextSlide}>
+        <button onClick={nextSlide} aria-label="Next slide">
           <Icon src={IMAGES.arrowNext} />
         </button>
       </div>

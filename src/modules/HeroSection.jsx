@@ -18,7 +18,7 @@ const HeroSection = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore.
           </p>
-          <button onClick={()=>setForm(true)} className="action">Apply Now</button>
+          <button onClick={setForm} className="action" aria-label="Open apply now form">Apply Now</button>
         </div>
 
         <HeroCarousal />

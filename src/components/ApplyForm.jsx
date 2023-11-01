@@ -73,7 +73,7 @@ const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
       <div className="form_container" onClick={(e) => e.stopPropagation()}>
         <div className="head">
           <h3>Apply for this job</h3>
-          <button onClick={closeSelf}>
+          <button onClick={closeSelf} aria-label="Close Form">
             <Icon src={IMAGES.closeIcon} alt="close icon" w={35} h={35} />
           </button>
         </div>
@@ -154,7 +154,7 @@ const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
                 <>
                   Resume/CV <sup>*</sup>
                 </>
-              )}{" "}
+              )}
               <Icon src={IMAGES.attachFile} w={24} />{" "}
             </label>
           </div>
@@ -169,7 +169,7 @@ const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
             ></textarea>
           </div>
 
-          <button className="action" type="submit">
+          <button className="action" type="submit" aria-label="Apply for Job">
             Apply
           </button>
         </form>

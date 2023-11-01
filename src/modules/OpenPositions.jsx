@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+
 import OpenPosition from "../components/OpenPosition";
 import ApplyForm from "../components/ApplyForm";
 import MyContext from "../contextApi/MyContext";
@@ -15,9 +16,11 @@ const OpenPositions = () => {
   }
 
   useEffect(() => {
-    getJobs(setJobsData);
+    if (!jobsData) getJobs(setJobsData);
     // eslint-disable-next-line
   }, []);
+
+  if (!jobsData) return <div className="center_pad">Loading...</div>;
 
   return (
     <section className="positions">
@@ -28,14 +31,17 @@ const OpenPositions = () => {
             <OpenPosition
               key={position.id + i}
               data={position}
-              apply={() => applyToPosition(position.title)}
+              apply={() => applyToPosition(position.job_title)}
             />
           ))}
         </div>
         {jobsData.length > 6 && (
           <p>
-            <button onClick={() => setShowAll(!showAll)}>
-              {showAll ? "View Less" : "All Open Positions"}
+            <button
+              onClick={() => setShowAll(!showAll)}
+              aria-label={`View ${showAll ? "less" : "all positions"}`}
+            >
+              {showAll ? "View Less" : "View All Positions"}
             </button>
           </p>
         )}

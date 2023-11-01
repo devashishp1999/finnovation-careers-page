@@ -19,27 +19,27 @@ const Header = () => {
         <nav className={navShow ? "active" : ""}>
           <ul>
             <li>
-              <a href="#">Home</a>
+              <a href="#" aria-label="Go to Home page">Home</a>
             </li>
             <li>
-              <a href="#">About us</a>
+              <a href="#" aria-label="Go to HoAbout usme page">About us</a>
             </li>
             <li>
-              <a href="#">Course</a>
+              <a href="#" aria-label="Go to Course page">Course</a>
             </li>
             <li>
-              <a href="#">Blogs & Articles</a>
+              <a href="#" aria-label="Go to Blogs & Articles page">Blogs & Articles</a>
             </li>
             <li>
               {viewport == "mobile" && (
-                <button className="cta" onClick={openForm}>Enrol Now</button>
+                <button className="cta" onClick={openForm} aria-label="Open apply now form">Enrol Now</button>
               )}
             </li>
           </ul>
         </nav>
 
         {viewport == "desktop" && (
-          <button className="cta" onClick={openForm}>
+          <button className="cta" onClick={openForm} aria-label="Open apply now form">
             Apply Now
           </button>
         )}

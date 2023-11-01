@@ -1,6 +1,6 @@
 import { IMAGES } from "../assets/assets";
 
-export const companyCultureImages = [...IMAGES.images];
+export const companyCultureImages = [...IMAGES.officeImages];
 
 export const testimonials = [
   {

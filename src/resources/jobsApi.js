@@ -2,8 +2,9 @@ const base = "https://dev.careers.finnovationz.com:3200/api";
 
 /**
  * Get all jobs
+ * @param {*} dataSetter Invoked with fetched data passed in argument.
  */
-export async function getJobs(setter) {
+export async function getJobs(dataSetter) {
   var myHeaders = new Headers();
   myHeaders.append("secret", "fuLicuJBQ4u2Pzq74oziswvkd2n2CZ60GinN7555Q3Y=");
   myHeaders.append(
@@ -19,7 +20,7 @@ export async function getJobs(setter) {
     headers: myHeaders,
   })
     .then((response) => response.json())
-    .then((result) => setter(result.data))
+    .then((result) => dataSetter(result.data))
     .catch((error) => console.log("error", error));
 }
 
@@ -47,3 +48,10 @@ export async function applyForJob(data) {
     return null;
   }
 }
+
+/**
+ * 
+ * @param {*} jobId 
+ * @param {*} dataSetter Invoked with fetched data passed in argument.
+ */
+export async function getJobDetails(jobId, dataSetter) {}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import MyContext from "./MyContext";
 
 function MyProvider({ children }) {
-  const [jobsData, setJobsData] = useState([]);
+  const [jobsData, setJobsData] = useState(null);
 
   return (
     <MyContext.Provider value={{ jobsData, setJobsData }}>
