@@ -25,9 +25,15 @@ const JobDetailsPage = () => {
   }
 
   if (!jobsData) return <div className="center_pad">Loading...</div>;
-  
+
   const pageData = jobsData.find((job) => job.id == jobId);
-  if (!pageData) return <h3 className="center_pad">404 Not Found</h3>;
+  if (!pageData)
+    return (
+      <>
+        <h3 className="center_pad">404 | Job Not Found</h3>
+        <OpenPositions />
+      </>
+    );
 
   const {
     id,
