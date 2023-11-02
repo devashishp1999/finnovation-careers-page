@@ -17,7 +17,7 @@ const App = () => {
           <Route path="/" element={<AppBody />}>
             <Route index element={<span className="center_pad">Home</span>} />
             <Route path="careers" element={<CareersPage />} />
-            <Route path="careers/:jobId" element={<JobDetailsPage />} />
+            <Route path="careers/:jobId"  element={<JobDetailsPage />} />
             <Route
               path="*"
               element={<h3 className="center_pad">404 Not Found</h3>}

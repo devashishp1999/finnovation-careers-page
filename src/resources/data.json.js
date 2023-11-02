@@ -1,6 +1,23 @@
 import { IMAGES } from "../assets/assets";
 
-export const companyCultureImages = [...IMAGES.officeImages];
+export const companyCultureImages = [
+  "https://websitevideos2020.s3.ap-south-1.amazonaws.com/career-web-site-immages/IMG_20230803_212056+(1).jpg",
+  "https://websitevideos2020.s3.ap-south-1.amazonaws.com/career-web-site-immages/IMG_20230913_125259.jpg",
+  "https://websitevideos2020.s3.ap-south-1.amazonaws.com/career-web-site-immages/IMG_20230921_205815.jpg",
+  "https://websitevideos2020.s3.ap-south-1.amazonaws.com/career-web-site-immages/IMG_20230921_205843.jpg",
+  "https://websitevideos2020.s3.ap-south-1.amazonaws.com/career-web-site-immages/IMG_20231005_103321.jpg",
+  "https://websitevideos2020.s3.ap-south-1.amazonaws.com/career-web-site-immages/IMG_20231005_103332.jpg",
+  "https://websitevideos2020.s3.ap-south-1.amazonaws.com/career-web-site-immages/IMG_20231005_103341.jpg",
+  "https://websitevideos2020.s3.ap-south-1.amazonaws.com/career-web-site-immages/IMG_20231005_103354.jpg",
+  "https://websitevideos2020.s3.ap-south-1.amazonaws.com/career-web-site-immages/IMG_20231010_145341.jpg",
+  "https://websitevideos2020.s3.ap-south-1.amazonaws.com/career-web-site-immages/IMG_20231010_145353.jpg",
+  "https://websitevideos2020.s3.ap-south-1.amazonaws.com/career-web-site-immages/IMG_20231010_145422.jpg",
+  "https://websitevideos2020.s3.ap-south-1.amazonaws.com/career-web-site-immages/IMG_20231010_145724.jpg",
+  "https://websitevideos2020.s3.ap-south-1.amazonaws.com/career-web-site-immages/IMG_8829.JPG",
+  "https://websitevideos2020.s3.ap-south-1.amazonaws.com/career-web-site-immages/IMG_8927.JPG",
+  "https://websitevideos2020.s3.ap-south-1.amazonaws.com/career-web-site-immages/Screenshot_2023-10-05-10-51-13-92_1c337646f29875672b5a61192b9010f9.jpg",
+  "https://websitevideos2020.s3.ap-south-1.amazonaws.com/career-web-site-immages/IMG_20230803_212056.jpg",
+];
 
 export const testimonials = [
   {

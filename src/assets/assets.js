@@ -1,5 +1,4 @@
 const img = (name) => require(`./images/${name}`);
-const oImg = (name) => require(`./officeImages/${name}`);
 
 export const IMAGES = {
   logo: img("logo.svg"),
@@ -34,20 +33,4 @@ export const IMAGES = {
   userImg: img("userImg.svg"),
   location: img("location.svg"),
   shareIcon: img("share_icon.svg"),
-  officeImages: [
-    oImg("img1.JPG"),
-    oImg("img2.JPG"),
-    oImg("img3.jpg"),
-    oImg("img4.jpg"),
-    oImg("img5.jpg"),
-    oImg("img6.jpg"),
-    oImg("img7.jpg"),
-    oImg("img8.jpg"),
-    oImg("img9.jpg"),
-    oImg("img10.jpg"),
-    oImg("img11.jpg"),
-    oImg("img12.jpg"),
-    oImg("img13.jpg"),
-    oImg("img14.jpg"),
-  ],
 };

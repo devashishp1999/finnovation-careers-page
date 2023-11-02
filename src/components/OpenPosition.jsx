@@ -1,11 +1,10 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Icon from "./Icon";
 import { IMAGES } from "../assets/assets";
 
 const OpenPosition = ({ data, apply = () => {} }) => {
-  const navigate = useNavigate();
 
   const { id, icon, job_title, city, job_type, details, min_exp, max_exp } =
     data;

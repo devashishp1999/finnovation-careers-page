@@ -32,21 +32,21 @@ const Culture = () => {
             <div className={"images " + viewport}>
               <div className="parts" data-d="50-50">
                 <div className="img">
-                  <img src={images[0]} alt="office culture image" loading="lazy" />
+                  <img src={images[0]} alt="office culture image" />
                 </div>
                 <div className="img">
-                  <img src={images[1]} alt="office culture image" loading="lazy"/>
+                  <img src={images[1]} alt="office culture image"/>
                 </div>
               </div>
               <div className="parts" data-d="30-40-30">
                 <div className="img">
-                  <img src={images[2]} alt="office culture image" loading="lazy"/>
+                  <img src={images[2]} alt="office culture image"/>
                 </div>
                 <div className="img">
-                  <img src={images[3]} alt="office culture image" loading="lazy"/>
+                  <img src={images[3]} alt="office culture image"/>
                 </div>
                 <div className="img">
-                  <img src={images[4]} alt="office culture image" loading="lazy"/>
+                  <img src={images[4]} alt="office culture image"/>
                 </div>
               </div>
             </div>
@@ -54,24 +54,24 @@ const Culture = () => {
             <div id="images_container" className={"images " + viewport}>
               <div className="parts" data-d="60-40">
                 <div className="img">
-                  <img src={images[0]} alt="office culture image" loading="lazy"/>
+                  <img src={images[0]} alt="office culture image"/>
                 </div>
                 <div className="img">
-                  <img src={images[1]} alt="office culture image" loading="lazy"/>
+                  <img src={images[1]} alt="office culture image"/>
                 </div>
               </div>
               <div className="parts" data-d="40-60">
                 <div className="img">
-                  <img src={images[2]} alt="office culture image" loading="lazy"/>
+                  <img src={images[2]} alt="office culture image"/>
                 </div>
                 <div className="img">
-                  <img src={images[3]} alt="office culture image" loading="lazy"/>
+                  <img src={images[3]} alt="office culture image"/>
                 </div>
               </div>
 
               <div className="parts" data-d="100">
                 <div className="img">
-                  <img src={images[4]} alt="office culture image" loading="lazy"/>
+                  <img src={images[4]} alt="office culture image"/>
                 </div>
               </div>
             </div>

@@ -8,6 +8,91 @@
   display: grid;
   place-items: center;
 }
+@mixin input_field() {
+  .input-field {
+    position: relative;
+    min-height: 44px;
+    width: 100%;
+
+    input,
+    textarea,
+    select,
+    input[type="file"] + label {
+      width: 100%;
+      min-height: 44px;
+      border-radius: 8px;
+      font-size: 16px;
+      padding: 0 15px;
+      border: 1px solid #737373;
+      background: transparent;
+      color: #000;
+      outline: none;
+      pointer-events: all;
+    }
+
+    textarea {
+      font-size: 14px;
+      padding: 12px 15px;
+      font-family: "Mulish", sans-serif;
+      max-width: 100%;
+      min-width: 100%;
+      min-height: 100px;
+      max-height: 200px;
+    }
+
+    select {
+      position: relative;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    select::after {
+      content: "▼";
+      font-size: 1rem;
+      top: 6px;
+      right: 10px;
+      position: absolute;
+    }
+
+    label {
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      transform: translateY(-50%);
+      color: #737373;
+      font-size: 14px;
+      pointer-events: none;
+      transition: 0.3s;
+      background: #fff;
+
+      sup {
+        color: red;
+        font-weight: 900;
+        margin-left: 3px;
+      }
+    }
+
+    input[type="file"] + label {
+      left: 0;
+      color: #737373;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+
+      .icon {
+        margin-left: auto;
+      }
+    }
+
+    :is(input:focus, :is(input, select):valid):not([type="file"])
+      + label {
+      top: 0;
+      left: 14px;
+      padding: 0 4px;
+      font-size: 12px;
+    }
+  }
+}
 
 $theme_blue: #2873d7;
 
@@ -809,7 +894,7 @@ main {
           text-align: center;
 
           h1 {
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             font-weight: 700;
           }
           p {
@@ -874,7 +959,7 @@ main {
       }
     }
 
-    .form {
+    div.form {
       overflow: hidden;
       background: linear-gradient(
         174deg,
@@ -893,13 +978,47 @@ main {
 
         h2 {
           margin-inline: auto;
+          font-size: 1.7rem;
+          font-weight: 800;
+          margin-bottom: 0;
+          span {
+            font-weight: 800;
+            font-size: 1.7rem;
+            color: $theme_blue;
+          }
+
+          & + hr {
+            height: 3px;
+            border: none;
+            width: 4rem;
+            background-color: $theme_blue;
+            margin-inline: auto;
+          }
         }
-        h2 + hr {
-          height: 3px;
-          border: none;
-          width: 4rem;
-          background-color: $theme_blue;
-          margin-inline: auto;
+
+        .form_container {
+          margin-top: 30px;
+          width: 100%;
+          max-width: 500px;
+
+          form {
+            & > div {
+              border-radius: 16px;
+              padding: 32px;
+              display: flex;
+              flex-wrap: wrap;
+              gap: 20px;
+              background-color: #fff;
+
+              @include input_field();
+            }
+
+            [type="submit"] {
+              width: 150px;
+              margin-inline: auto;
+              margin-top: 24px;
+            }
+          }
         }
       }
       .curve {
@@ -921,6 +1040,15 @@ main {
           max-width: 100%;
         }
       }
+    }
+  }
+
+  div.similar_jobs .container {
+    .jobs {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(284px, 100%), 1fr));
+      gap: 20px;
     }
   }
 }
@@ -1144,7 +1272,7 @@ main {
         }
       }
 
-      .form {
+      div.form {
         margin-block: 20px;
         padding-block: 40px;
         background: linear-gradient(
@@ -1154,6 +1282,20 @@ main {
         );
 
         .container {
+          .form_container {
+            max-width: 100%;
+          }
+
+          form > div {
+            .input-field {
+              max-width: calc(25% - 15px);
+
+              &:nth-child(1),
+              &:nth-child(2) {
+                max-width: calc(50% - 10px);
+              }
+            }
+          }
         }
 
         .curve.c2 {
@@ -1435,73 +1577,7 @@ button.action {
       flex-wrap: wrap;
       gap: 20px;
 
-      .input-field {
-        position: relative;
-        min-height: 44px;
-        width: 100%;
-
-        input,
-        textarea,
-        input[type="file"] + label {
-          width: 100%;
-          min-height: 44px;
-          border-radius: 8px;
-          font-size: 16px;
-          padding: 0 15px;
-          border: 1px solid #737373;
-          background: transparent;
-          color: #000;
-          outline: none;
-          pointer-events: all;
-        }
-
-        textarea {
-          font-size: 14px;
-          padding: 12px 15px;
-          font-family: "Mulish", sans-serif;
-          max-width: 100%;
-          min-width: 100%;
-          min-height: 100px;
-          max-height: 200px;
-        }
-
-        label {
-          position: absolute;
-          top: 50%;
-          left: 15px;
-          transform: translateY(-50%);
-          color: #737373;
-          font-size: 14px;
-          pointer-events: none;
-          transition: 0.3s;
-          background: #fff;
-
-          sup {
-            color: red;
-            font-weight: 900;
-            margin-left: 3px;
-          }
-        }
-
-        input[type="file"] + label {
-          left: 0;
-          color: #737373;
-          font-size: 14px;
-          display: flex;
-          align-items: center;
-
-          .icon {
-            margin-left: auto;
-          }
-        }
-
-        :is(input:focus, input:valid):not([type="file"]) + label {
-          top: 0;
-          left: 14px;
-          padding: 0 4px;
-          font-size: 12px;
-        }
-      }
+      @include input_field();
 
       [type="submit"] {
         width: 200px;
