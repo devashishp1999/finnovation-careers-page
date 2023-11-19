@@ -2,51 +2,77 @@ import React, { useEffect, useState } from "react";
 import useScreenSize from "../hooks/useScreenSize";
 import html2canvas from "html2canvas";
 import { $ } from "utils-deva";
-import { companyCultureImages as images } from "../resources/data.json";
+import { cultureImages } from "../resources/data.json";
 
 const Culture = () => {
   const viewport = useScreenSize();
   const [SS, setSS] = useState("");
 
+  const [imageOnLoad, setImageOnLoad] = useState("00000");
+
   function captureSSAndDisplay() {
     const el = $("#images_wrapper .images");
-    html2canvas(el).then((can) => setSS(can.toDataURL("image/png")));
+    html2canvas(el).then((canvas) => setSS(canvas.toDataURL("image/png")));
+  }
+
+  function setImageLoaded(index) {
+    setImageOnLoad((prev) => {
+      return prev.substring(0, index) + 1 + prev.substring(index + 1);
+    });
   }
 
   useEffect(() => {
-    setTimeout(captureSSAndDisplay);
-  }, [viewport]);
+    if (!imageOnLoad.includes("0")) {
+      setTimeout(captureSSAndDisplay);
+    }
+  }, [viewport, imageOnLoad]);
 
   return (
     <section className="culture">
       <div className="container">
         <h2>Office Culture</h2>
-        {/* <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore.
-        </p> */}
         <div id="images_wrapper">
-          <img className="before" src={SS} alt="before image" />
+          <img className="before" src={SS} alt="before" />
 
           {viewport === "desktop" ? (
             <div className={"images " + viewport}>
               <div className="parts" data-d="50-50">
                 <div className="img">
-                  <img src={images[0]} alt="office culture image" />
+                  <img
+                    src={cultureImages[0]}
+                    alt="office culture"
+                    onLoad={() => setImageLoaded(0)}
+                  />
                 </div>
                 <div className="img">
-                  <img src={images[1]} alt="office culture image"/>
+                  <img
+                    src={cultureImages[1]}
+                    alt="office culture"
+                    onLoad={() => setImageLoaded(1)}
+                  />
                 </div>
               </div>
               <div className="parts" data-d="30-40-30">
                 <div className="img">
-                  <img src={images[2]} alt="office culture image"/>
+                  <img
+                    src={cultureImages[2]}
+                    alt="office culture"
+                    onLoad={() => setImageLoaded(2)}
+                  />
                 </div>
                 <div className="img">
-                  <img src={images[3]} alt="office culture image"/>
+                  <img
+                    src={cultureImages[3]}
+                    alt="office culture"
+                    onLoad={() => setImageLoaded(3)}
+                  />
                 </div>
                 <div className="img">
-                  <img src={images[4]} alt="office culture image"/>
+                  <img
+                    src={cultureImages[4]}
+                    alt="office culture"
+                    onLoad={() => setImageLoaded(4)}
+                  />
                 </div>
               </div>
             </div>
@@ -54,30 +80,50 @@ const Culture = () => {
             <div id="images_container" className={"images " + viewport}>
               <div className="parts" data-d="60-40">
                 <div className="img">
-                  <img src={images[0]} alt="office culture image"/>
+                  <img
+                    src={cultureImages[0]}
+                    alt="office culture"
+                    onLoad={() => setImageLoaded(0)}
+                  />
                 </div>
                 <div className="img">
-                  <img src={images[1]} alt="office culture image"/>
+                  <img
+                    src={cultureImages[1]}
+                    alt="office culture"
+                    onLoad={() => setImageLoaded(1)}
+                  />
                 </div>
               </div>
               <div className="parts" data-d="40-60">
                 <div className="img">
-                  <img src={images[2]} alt="office culture image"/>
+                  <img
+                    src={cultureImages[2]}
+                    alt="office culture"
+                    onLoad={() => setImageLoaded(2)}
+                  />
                 </div>
                 <div className="img">
-                  <img src={images[3]} alt="office culture image"/>
+                  <img
+                    src={cultureImages[3]}
+                    alt="office culture"
+                    onLoad={() => setImageLoaded(3)}
+                  />
                 </div>
               </div>
 
               <div className="parts" data-d="100">
                 <div className="img">
-                  <img src={images[4]} alt="office culture image"/>
+                  <img
+                    src={cultureImages[4]}
+                    alt="office culture"
+                    onLoad={() => setImageLoaded(4)}
+                  />
                 </div>
               </div>
             </div>
           )}
 
-          <img className="after" src={SS} alt="before image" />
+          <img className="after" src={SS} alt="After" />
         </div>
 
         <button aria-label="Explore more Images">Explore more</button>

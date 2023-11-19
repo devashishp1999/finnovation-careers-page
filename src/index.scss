@@ -1543,7 +1543,8 @@ button.action {
   background: #0008;
   backdrop-filter: blur(3px);
   display: flex;
-  align-items: center;
+  // align-items: center;
+  overflow-y: auto;
   justify-content: center;
 
   .form_container {
@@ -1552,6 +1553,7 @@ button.action {
     height: fit-content;
     min-height: 500px;
     background-color: #fff;
+    margin-block: 40px;
 
     border-radius: 16px;
     background: linear-gradient(194deg, #e7f1fa 9.35%, #fff 30.07%);
@@ -1587,7 +1589,7 @@ button.action {
   }
 
   @media (min-width: 992px) {
-    .form_container form .input-field:has([name="phone"], [name="email"]) {
+    .form_container form .input-field.half {
       width: calc(50% - 10px);
     }
   }

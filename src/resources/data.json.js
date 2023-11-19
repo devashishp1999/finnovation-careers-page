@@ -1,5 +1,13 @@
 import { IMAGES } from "../assets/assets";
 
+export const cultureImages = [
+  require("../assets/culture_images/image1.jpeg"),
+  require("../assets/culture_images/image2.jpeg"),
+  require("../assets/culture_images/image3.jpeg"),
+  require("../assets/culture_images/image4.jpeg"),
+  require("../assets/culture_images/image5.jpeg"),
+];
+
 export const companyCultureImages = [
   "https://websitevideos2020.s3.ap-south-1.amazonaws.com/career-web-site-immages/IMG_20230803_212056+(1).jpg",
   "https://websitevideos2020.s3.ap-south-1.amazonaws.com/career-web-site-immages/IMG_20230913_125259.jpg",

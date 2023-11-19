@@ -35,7 +35,7 @@ const JobDetailsPage = () => {
     e.preventDefault();
 
     if (!formData.resume) {
-      return showToast("Upload a resume", "red");
+      return showToast("Upload a resume to apply", "red");
     }
 
     const data = new FormData();
@@ -111,20 +111,23 @@ const JobDetailsPage = () => {
 
   useEffect(() => {
     const path = window.location.pathname;
-    const pageId = +path.slice(path.lastIndexOf("/") + 1);
+    const pageId = path.slice(path.lastIndexOf("/") + 1);
 
     if (pageData && pageData.id !== pageId) {
+      // eslint-disable-next-line
       setPageData(jobsData.find((job) => job.id == pageId));
       window.scrollBy({
         top: -10000,
         behavior: "smooth",
       });
     }
+    // eslint-disable-next-line
   }, [window.location.pathname]);
 
   if (!jobsData) return <div className="center_pad">Loading...</div>;
 
   if (!pageData && pageData !== undefined) {
+    // eslint-disable-next-line
     setPageData(jobsData.find((job) => job.id == jobId));
   }
 
@@ -159,7 +162,7 @@ const JobDetailsPage = () => {
             <p>{city}</p>
           </div>
 
-          <div className={`actions${viewport == "mobile" ? " d_none" : ""}`}>
+          <div className={`actions${viewport === "mobile" ? " d_none" : ""}`}>
             <button className="share">
               <Icon src={IMAGES.shareIcon} alt="Share icon" />
             </button>

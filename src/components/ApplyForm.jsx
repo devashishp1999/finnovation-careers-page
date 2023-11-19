@@ -9,17 +9,28 @@ const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
 
   const [formData, setFormData] = useState({
     name: "",
+    location: "",
     phone: "",
     email: "",
+    total_exp: "",
+    relevant_exp: "",
+    current_ctc: "",
+    expected_ctc: "",
     position: position,
+    will_relocate: "",
+    notice_period: "",
+    qualification: "",
     resume: null,
-    about: "",
   });
 
-  const positions = ["Visual Designer", "Developer", "Product Designer"];
+  // const positions = ["Visual Designer", "Developer", "Product Designer"];
 
   async function submitForm(e) {
     e.preventDefault();
+
+    if (!formData.resume) {
+      return showToast("Upload a resume to apply", "red");
+    }
 
     const data = new FormData();
 
@@ -88,11 +99,24 @@ const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
               onChange={handleInputChange}
             />
             <label>
-              Name <sup>*</sup>
+              Full Name <sup>*</sup>
             </label>
           </div>
 
           <div className="input-field">
+            <input
+              type="text"
+              name="location"
+              required
+              value={formData.location}
+              onChange={handleInputChange}
+            />
+            <label>
+              Current Location <sup>*</sup>
+            </label>
+          </div>
+
+          <div className="input-field half">
             <input
               type="tel"
               name="phone"
@@ -105,7 +129,7 @@ const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
             </label>
           </div>
 
-          <div className="input-field">
+          <div className="input-field half">
             <input
               type="email"
               name="email"
@@ -118,7 +142,93 @@ const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
             </label>
           </div>
 
-          <div className="input-field">
+          <div className="input-field half">
+            <input
+              type="number"
+              name="total_exp"
+              required
+              value={formData.total_exp}
+              onChange={handleInputChange}
+            />
+            <label>
+              Total Year of Experience <sup>*</sup>
+            </label>
+          </div>
+
+          <div className="input-field half">
+            <input
+              type="number"
+              name="relevant_exp"
+              required
+              value={formData.relevant_exp}
+              onChange={handleInputChange}
+            />
+            <label>
+              Relevant Experience <sup>*</sup>
+            </label>
+          </div>
+
+          <div className="input-field half">
+            <input
+              type="number"
+              name="current_ctc"
+              required
+              value={formData.current_ctc}
+              onChange={handleInputChange}
+            />
+            <label>
+              Current Annual CTC <sup>*</sup>
+            </label>
+          </div>
+
+          <div className="input-field half">
+            <input
+              type="number"
+              name="expected_ctc"
+              required
+              value={formData.expected_ctc}
+              onChange={handleInputChange}
+            />
+            <label>
+              Expected CTC <sup>*</sup>
+            </label>
+          </div>
+
+          <div className="input-field half">
+            <select
+              name="will_relocate"
+              value={formData.will_relocate}
+              onChange={handleInputChange}
+              required
+            >
+              <option value="">Select an option</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+            <label>
+              Willing to relocate <sup>*</sup>
+            </label>
+          </div>
+
+          <div className="input-field half">
+            <select
+              name="notice_period"
+              value={formData.notice_period}
+              onChange={handleInputChange}
+              required
+            >
+              <option value="">Select</option>
+              <option value="1 week">1 week</option>
+              <option value="2 weeks">2 weeks</option>
+              <option value="1 month">1 month</option>
+              <option value="2 months">2 months</option>
+            </select>
+            <label>
+              Notice Period <sup>*</sup>
+            </label>
+          </div>
+
+          {/* <div className="input-field">
             <input
               type="text"
               name="position"
@@ -136,6 +246,24 @@ const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
                 <option key={role} value={role} />
               ))}
             </datalist>
+          </div> */}
+
+          <div className="input-field">
+            <select
+              name="qualification"
+              value={formData.qualification}
+              onChange={handleInputChange}
+              required
+            >
+              <option value="">Select an option</option>
+              <option value="High School">High School</option>
+              <option value="Bachelor's Degree">Bachelor's Degree</option>
+              <option value="Master's Degree">Master's Degree</option>
+              <option value="Ph.D.">Ph.D.</option>
+            </select>
+            <label>
+              Last Qualification <sup>*</sup>
+            </label>
           </div>
 
           <div className="input-field">
@@ -159,7 +287,7 @@ const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
             </label>
           </div>
 
-          <div className="input-field">
+          {/* <div className="input-field">
             <textarea
               placeholder="About Yourself"
               name="about"
@@ -167,7 +295,7 @@ const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
               value={formData.about}
               onChange={handleInputChange}
             ></textarea>
-          </div>
+          </div> */}
 
           <button className="action" type="submit" aria-label="Apply for Job">
             Apply
