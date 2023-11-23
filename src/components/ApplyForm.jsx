@@ -1,29 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Icon from "./Icon";
 import { IMAGES } from "../assets/assets";
 import { applyForJob } from "../resources/jobsApi";
 import { Toast } from "utils-deva";
+import MyContext from "../contextApi/MyContext";
 
-const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
+const ApplyForm = ({ jobId = "", closeSelf = () => {} }) => {
   const toast = new Toast();
-
+  const { jobsData } = useContext(MyContext);
   const [formData, setFormData] = useState({
-    name: "",
+    full_name: "",
     location: "",
-    phone: "",
-    email: "",
-    total_exp: "",
-    relevant_exp: "",
+    mobile: "",
+    email_id: "",
+    total_experience: "",
+    relevant_experience: "",
     current_ctc: "",
     expected_ctc: "",
-    position: position,
-    will_relocate: "",
+    job_role: jobId, //
+    relocate: "",
     notice_period: "",
+    // portfolio: "", 
     qualification: "",
     resume: null,
   });
-
-  // const positions = ["Visual Designer", "Developer", "Product Designer"];
 
   async function submitForm(e) {
     e.preventDefault();
@@ -93,9 +93,9 @@ const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
           <div className="input-field">
             <input
               type="text"
-              name="name"
+              name="full_name"
               required
-              value={formData.name}
+              value={formData.full_name}
               onChange={handleInputChange}
             />
             <label>
@@ -103,7 +103,33 @@ const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
             </label>
           </div>
 
-          <div className="input-field">
+          <div className="input-field half">
+            <input
+              type="tel"
+              name="mobile"
+              required
+              value={formData.mobile}
+              onChange={handleInputChange}
+            />
+            <label>
+              Phone Number <sup>*</sup>
+            </label>
+          </div>
+
+          <div className="input-field half">
+            <input
+              type="email"
+              name="email_id"
+              required
+              value={formData.email_id}
+              onChange={handleInputChange}
+            />
+            <label>
+              Email Id<sup>*</sup>
+            </label>
+          </div>
+
+          <div className="input-field half">
             <input
               type="text"
               name="location"
@@ -117,37 +143,28 @@ const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
           </div>
 
           <div className="input-field half">
-            <input
-              type="tel"
-              name="phone"
-              required
-              value={formData.phone}
+            <select
+              name="job_role"
+              value={formData.job_role}
               onChange={handleInputChange}
-            />
-            <label>
-              Phone Number <sup>*</sup>
-            </label>
-          </div>
-
-          <div className="input-field half">
-            <input
-              type="email"
-              name="email"
               required
-              value={formData.email}
-              onChange={handleInputChange}
-            />
+            >
+              <option value="">{jobsData?.length ? "Select": "No Openings"}</option>
+              {jobsData?.map((el) => (
+                <option value={el.id}>{el.job_title}</option>
+              ))}
+            </select>
             <label>
-              Email <sup>*</sup>
+              Job Role<sup>*</sup>
             </label>
           </div>
 
           <div className="input-field half">
             <input
               type="number"
-              name="total_exp"
+              name="total_experience"
               required
-              value={formData.total_exp}
+              value={formData.total_experience}
               onChange={handleInputChange}
             />
             <label>
@@ -158,9 +175,9 @@ const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
           <div className="input-field half">
             <input
               type="number"
-              name="relevant_exp"
+              name="relevant_experience"
               required
-              value={formData.relevant_exp}
+              value={formData.relevant_experience}
               onChange={handleInputChange}
             />
             <label>
@@ -170,7 +187,7 @@ const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
 
           <div className="input-field half">
             <input
-              type="number"
+              type="text"
               name="current_ctc"
               required
               value={formData.current_ctc}
@@ -183,7 +200,7 @@ const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
 
           <div className="input-field half">
             <input
-              type="number"
+              type="text"
               name="expected_ctc"
               required
               value={formData.expected_ctc}
@@ -196,8 +213,8 @@ const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
 
           <div className="input-field half">
             <select
-              name="will_relocate"
-              value={formData.will_relocate}
+              name="relocate"
+              value={formData.relocate}
               onChange={handleInputChange}
               required
             >
@@ -218,35 +235,16 @@ const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
               required
             >
               <option value="">Select</option>
-              <option value="1 week">1 week</option>
-              <option value="2 weeks">2 weeks</option>
-              <option value="1 month">1 month</option>
-              <option value="2 months">2 months</option>
+              <option value="Immediate">Immediate</option>
+              <option value="15 days">15 days</option>
+              <option value="1 Month">1 Month</option>
+              <option value="2 Months">2 Months</option>
+              <option value="3 Months">3 Months</option>
             </select>
             <label>
               Notice Period <sup>*</sup>
             </label>
           </div>
-
-          {/* <div className="input-field">
-            <input
-              type="text"
-              name="position"
-              list="open_position_list"
-              required
-              value={formData.position}
-              onChange={handleInputChange}
-            />
-            <label>
-              Applying for <sup>*</sup>
-            </label>
-
-            <datalist id="open_position_list">
-              {positions.map((role) => (
-                <option key={role} value={role} />
-              ))}
-            </datalist>
-          </div> */}
 
           <div className="input-field">
             <select
@@ -256,10 +254,10 @@ const ApplyForm = ({ position = "", closeSelf = () => {} }) => {
               required
             >
               <option value="">Select an option</option>
-              <option value="High School">High School</option>
               <option value="Bachelor's Degree">Bachelor's Degree</option>
               <option value="Master's Degree">Master's Degree</option>
               <option value="Ph.D.">Ph.D.</option>
+              <option value="Others">Others</option>
             </select>
             <label>
               Last Qualification <sup>*</sup>

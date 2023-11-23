@@ -41,17 +41,18 @@
     }
 
     select {
-      position: relative;
       -webkit-appearance: none;
       appearance: none;
     }
 
-    select::after {
-      content: "▼";
-      font-size: 1rem;
-      top: 6px;
-      right: 10px;
+    &:has(select)::after {
+      content: url(https://img.icons8.com/pastel-glyph/28/expand-arrow.png);
       position: absolute;
+      pointer-events: none;
+      font-size: 1rem;
+      top: 60%;
+      transform: translateY(-50%);
+      right: 10px;
     }
 
     label {
@@ -84,8 +85,7 @@
       }
     }
 
-    :is(input:focus, :is(input, select):valid):not([type="file"])
-      + label {
+    :is(input:focus, :is(input, select):valid):not([type="file"]) + label {
       top: 0;
       left: 14px;
       padding: 0 4px;

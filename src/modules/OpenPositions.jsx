@@ -11,8 +11,8 @@ const OpenPositions = () => {
 
   const { jobsData, setJobsData } = useContext(MyContext);
 
-  function applyToPosition(job) {
-    setForm(job);
+  function applyToPosition(jobId) {
+    setForm(jobId);
   }
 
   useEffect(() => {
@@ -27,11 +27,11 @@ const OpenPositions = () => {
       <div className="container">
         <h2>Open Positions</h2>
         <div className="cards">
-          {jobsData.slice(0, showAll ? undefined : 6).map((position, i) => (
+          {jobsData.slice(0, showAll ? undefined : 6).map((position) => (
             <OpenPosition
-              key={position.id + i}
+              key={position.id}
               data={position}
-              apply={() => applyToPosition(position.job_title)}
+              apply={() => applyToPosition(position.id)}
             />
           ))}
         </div>
@@ -47,7 +47,7 @@ const OpenPositions = () => {
         )}
       </div>
 
-      {form && <ApplyForm position={form} closeSelf={() => setForm(false)} />}
+      {form && <ApplyForm jobId={form} closeSelf={() => setForm(false)} />}
     </section>
   );
 };
