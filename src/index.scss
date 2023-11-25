@@ -55,6 +55,10 @@
       right: 10px;
     }
 
+    &:has(select:valid)::after {
+      content: "";
+    }
+
     label {
       position: absolute;
       top: 50%;
