@@ -444,11 +444,49 @@ main {
     .positions .container {
       @include colFlex();
 
+      .job_tabs {
+        width: fit-content;
+        margin-inline: auto;
+        display: flex;
+        align-items: baseline;
+        font-weight: 400;
+        color: #646464;
+
+        span {
+          padding-inline: 25px;
+          padding-bottom: 6px;
+          border-bottom: 1px solid #e8e8e8;
+          user-select: none;
+
+          &.active {
+            color: #387edb;
+            font-weight: 700;
+            position: relative;
+
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: -1px;
+              left: 0;
+              width: 100%;
+              height: 3px;
+              background: #387edb;
+            }
+          }
+        }
+      }
+
       .cards {
+        min-height: 100px;
         margin-top: 24px;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(min(284px, 100%), 1fr));
         gap: 20px;
+
+        .no_jobs_text {
+          display: grid;
+          place-items: center;
+        }
       }
 
       .cards + p {
@@ -665,7 +703,7 @@ main {
         grid-template-columns: 1fr 1fr;
         gap: 20px;
 
-        .card {
+        .job_card {
           background: linear-gradient(
             217deg,
             #f4fefe 14.26%,
@@ -1470,12 +1508,13 @@ button.action {
   box-shadow: 0 6px 12px #3782d960;
 }
 
-.card {
+.job_card {
   display: flex;
   padding: 24px;
+  max-width: 400px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 32px;
+  gap: 16px;
   border-radius: 16px;
   border: 1px solid #e8e8e8;
   box-shadow: 0px 3px 5px 0px rgba(178, 178, 178, 0.1);
@@ -1491,7 +1530,27 @@ button.action {
   h3 {
     font-size: 1.3rem;
     font-weight: 700;
-    margin-block: 24px 4px;
+    margin-block: 0 4px 24px;
+    width: 100%;
+    display: flex;
+    gap: 8px;
+
+    & > div {
+      .loc {
+        margin-top: 4px;
+        display: flex;
+        align-items: center;
+        gap: 2px;
+      }
+    }
+  }
+
+  .details {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Number of lines to show */
+    -webkit-box-orient: vertical;
   }
 
   p {
@@ -1500,23 +1559,50 @@ button.action {
     font-weight: 400;
   }
 
-  p + p {
-    margin-top: 1rem;
+  hr {
+    width: 100%;
+    height: 0;
+    border-top: #e8e8e8;
   }
 
-  .loc {
-    margin-top: 0.7rem;
+  .skills {
+    span {
+      font-weight: 700;
+    }
+  }
+
+  .ctc {
+    width: 100%;
+    background-color: #fafafa;
+    border: 1px solid #e8e8e8;
+    padding: 12px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: 16px;
+
+    div {
+      @include colFlex();
+      font-size: 14px;
+
+      span {
+        font-size: 14px;
+        font-weight: 700;
+      }
+    }
+
+    hr {
+      height: 20px;
+      width: 1px;
+      border-left: #e8e8e8;
+    }
   }
 
-  div + div {
+  .bottom {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    border-top: 1px solid #e8e8e8;
-    padding-top: 24px;
+    padding-top: 10px;
     margin-top: auto;
 
     p {

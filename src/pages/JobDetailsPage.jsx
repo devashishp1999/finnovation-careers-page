@@ -145,7 +145,7 @@ const JobDetailsPage = () => {
     // positions,
     // salary_min,
     // salary_max,
-    // details,
+    details,
     requirements,
     responsibilities,
     // work_mode,
@@ -170,15 +170,7 @@ const JobDetailsPage = () => {
           </div>
         </div>
 
-        <p>
-          We are seeking a Communication Specialist to join our dynamic team. As
-          a Communication Specialist, you will play a crucial role in
-          maintaining and enhancing our online presence through effective
-          management of social media platforms. You will be responsible for
-          responding to social media direct messages, engaging with our
-          audience, and ensuring that our online communication aligns with our
-          brand image and goals.
-        </p>
+        <p dangerouslySetInnerHTML={{ __html: details }}></p>
 
         <hr />
 
