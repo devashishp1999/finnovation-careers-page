@@ -14,8 +14,8 @@ const OpenPosition = ({ data, apply = () => {} }) => {
         <Icon src={icon || IMAGES.jobIcon} w={50} />
         <div>
           <Link to={`/careers/${id}`}>{job_title}</Link>
-          <p className="loc">
-            <Icon src={IMAGES.location} h={16} /> {city ?? ""}
+          <p className="loc">{city ?? ""}
+            {/* <Icon src={IMAGES.location} h={16} />  */}
           </p>
         </div>
       </h3>
