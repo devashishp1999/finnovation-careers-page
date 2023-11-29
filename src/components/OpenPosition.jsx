@@ -5,7 +5,7 @@ import Icon from "./Icon";
 import { IMAGES } from "../assets/assets";
 
 const OpenPosition = ({ data, apply = () => {} }) => {
-  const { id, icon, job_title, city, details, min_exp, max_exp } = data;
+  const { id, icon, job_title, city, details, positions, salary_max, min_exp, max_exp, skills } = data;
   const exp = `${min_exp}-${max_exp} Years`;
 
   return (
@@ -14,7 +14,8 @@ const OpenPosition = ({ data, apply = () => {} }) => {
         <Icon src={icon || IMAGES.jobIcon} w={50} />
         <div>
           <Link to={`/careers/${id}`}>{job_title}</Link>
-          <p className="loc">{city ?? ""}
+          <p className="loc">
+            {city ?? ""}
             {/* <Icon src={IMAGES.location} h={16} />  */}
           </p>
         </div>
@@ -25,18 +26,17 @@ const OpenPosition = ({ data, apply = () => {} }) => {
       </p>
       <hr />
       <p className="skills">
-        <span>Skills: </span>Photoshop, Illustrator, Corel draw and after
-        effects
+        <span>Skills: </span>{JSON.parse(skills)?.join(", ")}
       </p>
-      <p className="ctc">
+      <div className="ctc">
         <div>
-          <span>CTC</span>10 LPA
+          <span>CTC</span>{salary_max} LPA
         </div>
         <hr />
         <div>
-          <span>Total openings</span>2
+          <span>Total openings</span>{positions}
         </div>
-      </p>
+      </div>
       <div className="bottom">
         <p>
           <span>{exp}</span>
