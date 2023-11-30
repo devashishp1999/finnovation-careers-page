@@ -14,10 +14,11 @@ const HeroSection = () => {
             <br />
             FinnovationZ
           </h1>
-          <p>
+          <br />
+          {/* <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore.
-          </p>
+          </p> */}
           <button onClick={setForm} className="action" aria-label="Open apply now form">Apply Now</button>
         </div>
 

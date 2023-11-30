@@ -1,17 +1,12 @@
+/* eslint-disable eqeqeq */
+
 import React, { useEffect, useRef, useState } from "react";
 import { IMAGES } from "../assets/assets";
 import Icon from "./Icon";
 import { SwipeCarousel, px } from "utils-deva";
 import useScreenSize from "../hooks/useScreenSize";
 
-const imgArr = IMAGES.cImage;
-const slides = [
-  { id: 1, img: imgArr[0] },
-  { id: 2, img: imgArr[1] },
-  { id: 3, img: imgArr[0] },
-  { id: 4, img: imgArr[1] },
-  { id: 5, img: imgArr[0] },
-];
+const slides = IMAGES.cImage.map((el, i) => ({ id: i + 1, img: el }));
 
 const HeroCarousal = () => {
   const viewport = useScreenSize();
@@ -64,7 +59,7 @@ const HeroCarousal = () => {
                   : { "--offset": px(!isOff ? offset : 0) }),
               }}
             >
-              <img src={img} alt="slide image" loading="lazy" />
+              <img src={img} alt="slide" loading="lazy" />
             </div>
           );
         })}

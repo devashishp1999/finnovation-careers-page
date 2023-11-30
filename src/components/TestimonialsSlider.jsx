@@ -97,7 +97,7 @@ const TestimonialsSlider = () => {
           {slides.map((_, i) => (
             <span
               key={i}
-              className={i == counter ? "active" : ""}
+              className={i === counter ? "active" : ""}
               onClick={() => setCount(i)}
             />
           ))}

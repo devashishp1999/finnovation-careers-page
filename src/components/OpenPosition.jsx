@@ -21,8 +21,7 @@ const OpenPosition = ({ data, apply = () => {} }) => {
         </div>
       </h3>
       <p className="details">
-        {details ||
-          "You will be expected to lead the company’s entire UI strategy You will be expected to lead the company’s entire UI strategy"}
+        {details || ""}
       </p>
       <hr />
       <p className="skills">

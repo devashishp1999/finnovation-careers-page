@@ -14,7 +14,7 @@ export const IMAGES = {
   salary: img("salary.svg"),
   days: img("days.svg"),
   build: img("build.svg"),
-  cImage: [img("c_image1.jpeg"), img("c_image2.jpeg")],
+  cImage: [img("c_image1.jpg"), img("c_image2.jpg"), img("c_image3.jpg")],
   arrowBack: img("arrowBack.svg"),
   arrowNext: img("arrowNext.svg"),
   closeIcon: img("closeIcon.svg"),
@@ -30,7 +30,7 @@ export const IMAGES = {
   testimonialBG2: img("testimonialBG2.svg"),
   testimonialEllipse: img("testimonialEllipse.svg"),
   arc: img("arc.svg"),
-  userImg: img("userImg.svg"),
+  userImg: "https://img.icons8.com/pastel-glyph/64/person-male--v1.png",
   location: img("location.svg"),
   shareIcon: img("share_icon.svg"),
 };

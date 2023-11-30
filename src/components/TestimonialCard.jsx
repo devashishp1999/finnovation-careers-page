@@ -7,17 +7,18 @@ const TestimonialCard = ({ info, clickCard = () => {} }) => {
   const viewport = useScreenSize();
 
   if (!info) {
-    return (
-      <div id={"testimonial-x"} className="testimonial_card">
-        <strong>
-          Keep 'EVEN' number of testimonials, to keep the design as intended.
-        </strong>
-      </div>
-    );
+    return <></>
+    // return (
+    //   <div id={"testimonial-x"} className="testimonial_card">
+    //     <strong>
+    //       Keep 'EVEN' number of testimonials, to keep the design as intended.
+    //     </strong>
+    //   </div>
+    // );
   }
 
   const { id, avatar, name, location, text, stars } = info;
-  const quoteW = viewport == "desktop" ? 48 : 40;
+  const quoteW = viewport === "desktop" ? 48 : 40;
 
   const starsArr = [
     ...new Array(stars).fill("starFilled"),
@@ -34,10 +35,7 @@ const TestimonialCard = ({ info, clickCard = () => {} }) => {
       <div className="user">
         <div className="avatar">
           <Icon
-            src={
-              avatar ||
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVYUbi-Jf5QxIW-koSAO97ZmKrOXadXeJ3xQ&usqp=CAU"
-            }
+            src = { avatar }
           />
         </div>
         <div className="info">
