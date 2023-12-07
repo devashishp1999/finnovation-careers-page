@@ -13,7 +13,7 @@ export async function getJobs(dataSetter) {
   );
   myHeaders.append("Content-Type", "application/json");
 
-  myHeaders.append("jobtype", "1");
+  // myHeaders.append("jobtype", "1");
 
   fetch(`${base}/v1/fetch/latestJobs`, {
     method: "GET",
