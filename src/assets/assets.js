@@ -14,7 +14,7 @@ export const IMAGES = {
   salary: img("salary.svg"),
   days: img("days.svg"),
   build: img("build.svg"),
-  cImage: [img("c_image1.jpg"), img("c_image2.jpg"), img("c_image3.jpg")],
+  cImage: [img("c_image1.jpg"), img("c_image2.jpg"), img("c_image3.jpg")], // Images for hero carousal
   arrowBack: img("arrowBack.svg"),
   arrowNext: img("arrowNext.svg"),
   closeIcon: img("closeIcon.svg"),

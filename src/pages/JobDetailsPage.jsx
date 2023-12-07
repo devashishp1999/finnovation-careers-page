@@ -7,7 +7,7 @@ import { IMAGES } from "../assets/assets";
 import useScreenSize from "../hooks/useScreenSize";
 import { $, Toast } from "utils-deva";
 import ApplyForm from "../components/ApplyForm";
-import SimilarPosition from "../components/SimilarPosition";
+import OpenPosition from "../components/OpenPosition";
 
 const JobDetailsPage = () => {
   const [form, setForm] = useState(false);
@@ -373,7 +373,7 @@ const JobDetailsPage = () => {
               .filter((job) => job.id !== pageData.id)
               .slice(0, 3)
               .map((job, i) => (
-                <SimilarPosition
+                <OpenPosition
                   key={job.id + i}
                   data={job}
                   apply={() => applyToPosition(job.job_title)}
