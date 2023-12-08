@@ -14,7 +14,6 @@ export const IMAGES = {
   salary: img("salary.svg"),
   days: img("days.svg"),
   build: img("build.svg"),
-  cImage: [img("c_image1.jpg"), img("c_image2.jpg"), img("c_image3.jpg")], // Images for hero carousal
   arrowBack: img("arrowBack.svg"),
   arrowNext: img("arrowNext.svg"),
   closeIcon: img("closeIcon.svg"),
@@ -33,4 +32,11 @@ export const IMAGES = {
   userImg: "https://img.icons8.com/pastel-glyph/64/person-male--v1.png",
   location: img("location.svg"),
   shareIcon: img("share_icon.svg"),
+  // cImage: [img("c_image1.jpg"), img("c_image2.jpg"), img("c_image3.jpg")], // Images for hero carousal
+  cImage: [
+    "https://websitevideos2020.s3.ap-south-1.amazonaws.com/career-web-site-immages/1.jpg",
+    "https://websitevideos2020.s3.ap-south-1.amazonaws.com/career-web-site-immages/2.jpg",
+    "https://websitevideos2020.s3.ap-south-1.amazonaws.com/career-web-site-immages/3.jpg",
+    "https://websitevideos2020.s3.ap-south-1.amazonaws.com/career-web-site-immages/4.jpg",
+  ],
 };
