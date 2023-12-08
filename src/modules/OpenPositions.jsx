@@ -74,7 +74,7 @@ const OpenPositions = () => {
                 </div>
               )}
             </div>
-            {jobsData.length > 6 && (
+            {JobsArray.length > 6 && (
               <p>
                 <button
                   onClick={() => setShowAll(!showAll)}
