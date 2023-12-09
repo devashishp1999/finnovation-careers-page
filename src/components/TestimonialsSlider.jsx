@@ -6,19 +6,22 @@ import useScreenSize from "../hooks/useScreenSize";
 import TestimonialCard from "./TestimonialCard";
 import { testimonials as slidesData } from "../resources/data.json";
 
+const slidesX = new Array(50).fill(slidesData).flat();
+
 const TestimonialsSlider = () => {
   const viewport = useScreenSize();
-  const [slides, setSlides] = useState(slidesData);
   const [swiper, setSwiper] = useState(new SwipeCarousel());
 
   const carousalRef = useRef();
 
-  const [counter, setCount] = useState(Math.min(2, slides.length - 1)); // value bw 0 & slides.length
+  const [slides, setSlides] = useState(slidesX);
+
+  const [counter, setCount] = useState(Math.floor(slides.length / 2));
+
   const dimen = { w: 320, h: 350, sw: 320 * 0.9, g: 20 };
 
   function nextSlide() {
     setCount(Math.min(counter + 1, slides.length - 1));
-    // setCount(counter >= slides.length - 1 ? 0 : counter + 1);
   }
   function prevSlide() {
     setCount(Math.max(counter - 1, 0));
@@ -30,12 +33,14 @@ const TestimonialsSlider = () => {
   useEffect(() => {
     if (viewport === "mobile") {
       const newSlides = [];
-      for (let i = 0; i < slidesData.length; i += 2) {
-        newSlides.push([slidesData[i], slidesData[i + 1]]);
+      for (let i = 0; i < slides.length; i += 2) {
+        newSlides.push([slides[i], slides[i + 1]]);
       }
       setSlides(newSlides);
+      setCount(Math.ceil(counter / 2));
     } //
-    else setSlides(slidesData);
+    else setSlides(slidesX);
+    // eslint-disable-next-line
   }, [viewport]);
 
   useEffect(() => {
@@ -57,7 +62,7 @@ const TestimonialsSlider = () => {
         }}
       >
         {slides.map((slide, i) => {
-          const isOff = i - counter < 0 ? "back" : "";
+          const off = i - counter < 0 ? "back" : "";
           const active = i - counter === 0 ? "active" : "";
           const ahead = i - counter > 0 ? "ahead" : "";
 
@@ -67,7 +72,7 @@ const TestimonialsSlider = () => {
           return (
             <div
               key={i}
-              className={"slide " + (isOff || active || ahead)}
+              className={"slide " + (off || active || ahead)}
               style={{ "--offset": px(offset), "--at": Math.abs(i - counter) }}
             >
               {Array.isArray(slide) ? (
@@ -94,11 +99,10 @@ const TestimonialsSlider = () => {
           <Icon src={IMAGES.arrowBack} />
         </button>
         <div className="index">
-          {slides.map((_, i) => (
+          {slidesData.map((_, i) => (
             <span
               key={i}
-              className={i === counter ? "active" : ""}
-              onClick={() => setCount(i)}
+              className={i === counter % slidesData.length ? "active" : ""}
             />
           ))}
         </div>

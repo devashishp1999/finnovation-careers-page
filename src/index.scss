@@ -551,7 +551,7 @@ main {
 
               .testimonial_card {
                 $at: calc(0.95 - 0.05 * var(--at));
-                width: calc(var(--w) * $at);
+                width: var(--sw);
                 height: calc(var(--h) * $at);
                 background-color: #ffffff90;
                 border-radius: 16px;
