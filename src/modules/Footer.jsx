@@ -20,7 +20,7 @@ const Footer = () => {
 
         <ul className="sitemap">
           <li>
-            <a href="#" aria-label="Go to Home page">Home</a>
+            <a href="/" aria-label="Go to Home page">Home</a>
           </li>
           <li>
             <a href="#" aria-label="Go to Instructor page">Instructor</a>
@@ -29,7 +29,7 @@ const Footer = () => {
             <a href="#" aria-label="Go to Our Pricing page">Our Pricing</a>
           </li>
           <li>
-            <a href="#" aria-label="Go to Testimonials page">Testimonials</a>
+            <a href="#testimonials" aria-label="Go to Testimonials page">Testimonials</a>
           </li>
           <li>
             <a href="#" aria-label="Go to FAQ page">FAQ</a>
@@ -38,27 +38,27 @@ const Footer = () => {
 
         <ul className="links">
           <li>
-            <a href="www.linkedin.com" aria-label="Open company linkedIn page">
+            <a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" aria-label="Open company linkedIn page">
               <Icon src={IMAGES.linkedinIcon} w={48} h={48} />
             </a>
           </li>
           <li>
-            <a href="www.facebook.com" aria-label="Open company facebook page">
+            <a href="https://www.facebook.com/profile.php?id=100091287158268&mibextid=nW3QTL" aria-label="Open company facebook page">
               <Icon src={IMAGES.facebookIcon} w={48} h={48} />
             </a>
           </li>
           <li>
-            <a href="www.twitter.com" aria-label="Open company twitter page">
+            <a href="https://twitter.com/conveyofficial?t=riXE4lD9f8bLbjOmhAIf8Q&s=09" aria-label="Open company twitter page">
               <Icon src={IMAGES.twitterIcon} w={48} h={48} />
             </a>
           </li>
           <li>
-            <a href="www.instagram.com" aria-label="Open company instagram page">
+            <a href="https://instagram.com/namaskarprasad?igshid=MzRlODBiNWFlZA==" aria-label="Open company instagram page">
               <Icon src={IMAGES.instagramIcon} w={48} h={48} />
             </a>
           </li>
           <li>
-            <a href="www.youtube.com" aria-label="Open company youtube channel">
+            <a href="https://youtube.com/@namaskarprasad?si=BKRmkkM9XKOBIfVN" aria-label="Open company youtube channel">
               <Icon src={IMAGES.youtubeIcon} w={48} h={48} />
             </a>
           </li>

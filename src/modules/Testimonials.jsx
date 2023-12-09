@@ -4,7 +4,7 @@ import { IMAGES } from "../assets/assets";
 
 const Testimonials = () => {
   return (
-    <section className="testimonials">
+    <section id="testimonials" className="testimonials">
       <div className="container">
         <img
           className="bg_ellipse"
