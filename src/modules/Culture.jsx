@@ -8,7 +8,7 @@ const Culture = () => {
   const viewport = useScreenSize();
   const [SS, setSS] = useState("");
 
-  const [imageOnLoad, setImageOnLoad] = useState("00000");
+  const [imageOnLoad, setImageOnLoad] = useState("00000"); // each '0' for each images' loaded state
 
   function captureSSAndDisplay() {
     const el = $("#images_wrapper .images");
