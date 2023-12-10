@@ -20,7 +20,7 @@ const Timeline = () => {
           <div style={{ "--i": 1 }}>
             <h3>2019</h3>
             <p>
-              Crossed 5 Lakh YT subscribers
+              Crossed 5 Lakh YT subscribers.
             </p>
             <span className="line2">
               <img src={IMAGES.timeline2} alt="lines" loading="lazy"/>
@@ -33,18 +33,25 @@ const Timeline = () => {
               <img src={IMAGES.timeline3} alt="lines" loading="lazy"/>
             </span>
           </div>
-          <div style={{ "--i": 1 }}>
+          <div style={{ "--i": 0 }}>
             <h3>2021</h3>
-            <p>Started mutual fund aggregator for corporates</p>
+            <p>Enhanced my business</p>
             <span className="line2">
               <img src={IMAGES.timeline2} alt="lines" loading="lazy"/>
             </span>
           </div>
-          <div style={{ "--i": 2 }}>
+          <div style={{ "--i": 1 }}>
             <h3>2022</h3>
             <p>Crossed 2 Mn YT subs & our two Apps crossed 1 Lakh downloads</p>
             <span className="line2">
               <img src={IMAGES.timeline3} alt="lines" loading="lazy"/>
+            </span>
+          </div>
+          <div style={{ "--i": 2 }}>
+            <h3>2023</h3>
+            <p>Launched 2 of our flagship products namely Finance Club & Brokerage comparision</p>
+            <span className="line2">
+              <img src={IMAGES.timeline2} alt="lines" loading="lazy"/>
             </span>
           </div>
         </div>

@@ -887,6 +887,12 @@ main {
             font-weight: 300;
           }
 
+          &:nth-of-type(2), &:nth-of-type(4){
+            p {
+              margin-left: 40px;
+            }
+          }
+
           .line2 {
             position: absolute;
             width: 80%;
@@ -1238,12 +1244,13 @@ main {
           align-items: unset;
 
           & > div {
-            width: 155px;
+            width: 118px;
             @include colFlex();
             align-items: center;
             gap: 18px;
             position: relative;
-            margin-top: calc(var(--i) * 30px);
+            margin-top: calc(var(--i) * 35px);
+            margin-bottom: calc(-1 * var(--i) * 18px);
             padding-inline: unset;
             padding-block: unset;
 
@@ -1253,6 +1260,7 @@ main {
 
             p {
               text-align: center;
+              margin-left: 0 !important;
             }
 
             .line2 {
