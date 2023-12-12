@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import HeroCarousal from "../components/HeroCarousal";
-import ApplyForm from "../components/ApplyForm";
 
 const HeroSection = () => {
-  const [form, setForm] = useState(false);
 
   return (
     <section className="hero">
@@ -19,13 +17,22 @@ const HeroSection = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore.
           </p> */}
-          <button onClick={setForm} className="action" aria-label="Open apply now form">Apply Now</button>
+          <button
+            onClick={() => {
+              const a = document.createElement("a");
+              a.setAttribute("href", "#positions");
+              a.click();
+              a.remove();
+            }}
+            className="action"
+            aria-label="Open apply now form"
+          >
+            Apply Now
+          </button>
         </div>
 
         <HeroCarousal />
       </div>
-
-      {form && <ApplyForm position={""} closeSelf={() => setForm(false)} />}
     </section>
   );
 };

@@ -37,7 +37,7 @@ const OpenPosition = ({ data, apply = () => {} }) => {
         <span>Skills: </span>
         {JSON.parse(skills)?.join(", ")}
       </p>
-      <div className="ctc">
+      <div className="ctc" style={{ "--x": salary_max ? 1 : 2 }}>
         <div>
           <span>CTC</span>
           {salary_max ? salary_max + "LPA" : "Not disclosed"}

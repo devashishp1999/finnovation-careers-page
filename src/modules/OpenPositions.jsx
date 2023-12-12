@@ -32,7 +32,7 @@ const OpenPositions = () => {
   const JobsArray = jobsData?.filter(({ job_type }) => checkJobType(job_type));
 
   return (
-    <section className="positions">
+    <section id="positions" className="positions">
       <div className="container">
         <h2>Open Positions</h2>
         <div className="job_tabs">

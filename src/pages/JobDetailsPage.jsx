@@ -135,7 +135,7 @@ const JobDetailsPage = () => {
     return <h3 className="center_pad">404 | Job Not Found</h3>;
 
   const {
-    // id,
+    id,
     job_title,
     city,
     // min_exp,
@@ -163,10 +163,12 @@ const JobDetailsPage = () => {
           </div>
 
           <div className={`actions${viewport === "mobile" ? " d_none" : ""}`}>
-            <button className="share">
+            {/* <button className="share">
               <Icon src={IMAGES.shareIcon} alt="Share icon" />
+            </button> */}
+            <button className="action" onClick={() => setForm(id)}>
+              Apply Now
             </button>
-            <button className="action">Apply Now</button>
           </div>
         </div>
 
@@ -376,14 +378,14 @@ const JobDetailsPage = () => {
                 <OpenPosition
                   key={job.id + i}
                   data={job}
-                  apply={() => applyToPosition(job.job_title)}
+                  apply={() => applyToPosition(job.id)}
                 />
               ))}
           </div>
         </div>
       </div>
 
-      {form && <ApplyForm position={form} closeSelf={() => setForm(false)} />}
+      {form && <ApplyForm jobId={form} closeSelf={() => setForm(false)} />}
     </div>
   );
 };

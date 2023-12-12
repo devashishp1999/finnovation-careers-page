@@ -151,7 +151,7 @@ const ApplyForm = ({ jobId = "", closeSelf = () => {} }) => {
             >
               <option value="">{jobsData?.length ? "Select": "No Openings"}</option>
               {jobsData?.map((el) => (
-                <option value={el.id}>{el.job_title}</option>
+                <option key={el.id} value={el.id}>{el.job_title}</option>
               ))}
             </select>
             <label>

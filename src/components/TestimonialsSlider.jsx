@@ -18,13 +18,55 @@ const TestimonialsSlider = () => {
 
   const [counter, setCount] = useState(Math.floor(slides.length / 2));
 
+  const [autoSlide, setAutoSlide] = useState(null);
+
   const dimen = { w: 320, h: 350, sw: 320 * 0.9, g: 20 };
 
-  function nextSlide() {
-    setCount(Math.min(counter + 1, slides.length - 1));
+  function nextSlide(e) {
+    checkEvent(e);
+
+    setCount((prev) => {
+      if (prev === slides.length - slidesData.length) return slides.length / 2;
+      return Math.min(prev + 1, slides.length - 1);
+    });
   }
-  function prevSlide() {
-    setCount(Math.max(counter - 1, 0));
+  function prevSlide(e) {
+    checkEvent(e);
+    setCount((prev) => {
+      if (prev === slidesData.length) return slides.length / 2;
+      return Math.max(prev - 1, 0);
+    });
+  }
+
+  function checkEvent(e) {
+    if (e?.nativeEvent instanceof PointerEvent) pauseAutoSlider();
+  }
+
+  function startAutoSlider() {
+    clearInterval(autoSlide);
+    setAutoSlide(setInterval(nextSlide, 4000));
+  }
+  function pauseAutoSlider() {
+    if (!autoSlide) return;
+
+    setAutoSlide(clearInterval(autoSlide));
+    setTimeout(startAutoSlider, 3000);
+  }
+
+  function allClear() {
+    var rect = carousalRef.current?.getBoundingClientRect();
+    if(!rect) return;
+    var viewHeight = Math.max(
+      document.documentElement.clientHeight,
+      window.innerHeight
+    );
+    const counter = +getComputedStyle(
+      document.querySelector(".testimonials .slider").lastChild
+    ).getPropertyValue("--at");
+    return (
+      (rect.bottom < 0 || rect.top - viewHeight >= 0) &&
+      (counter < 100 || counter >= slides.length - slidesData.length)
+    );
   }
 
   swiper.onSwipeRight = prevSlide;
@@ -46,7 +88,20 @@ const TestimonialsSlider = () => {
   useEffect(() => {
     if (carousalRef.current) {
       setSwiper(new SwipeCarousel(carousalRef.current, 80));
+
+      startAutoSlider();
+
+      document.addEventListener("mousemove", () => {
+        if (allClear()) setCount(Math.floor(slides.length / 2));
+      });
     }
+
+    return () => {
+      document.removeEventListener("mousemove", () => {
+        if (allClear()) setCount(Math.floor(slides.length / 2));
+      });
+    };
+    // eslint-disable-next-line
   }, []);
 
   return (

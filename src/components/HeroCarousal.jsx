@@ -10,17 +10,43 @@ const slides = IMAGES.cImage.map((el, i) => ({ id: i + 1, img: el }));
 
 const HeroCarousal = () => {
   const viewport = useScreenSize();
-  const [counter, setCount] = useState(1); // 0 to slides.length
+  const [counter, setCount] = useState(0); // 0 to slides.length
   const [dimen] = useState({ w: 320, h: 470, g: 20 });
   const [swiper, setSwiper] = useState(new SwipeCarousel());
 
+  const [autoSlide, setAutoSlide] = useState(null);
+
   const carousalRef = useRef();
 
-  function nextSlide() {
-    setCount(Math.min(counter + 1, slides.length - 1));
+  function nextSlide(e) {
+    checkEvent(e);
+
+    setCount((prev) => {
+      if (prev === slides.length - 1) return 0;
+      return Math.min(prev + 1, slides.length - 1);
+    });
   }
-  function prevSlide() {
-    setCount(Math.max(counter - 1, 0));
+  function prevSlide(e) {
+    checkEvent(e);
+    setCount((prev) => {
+      if (prev === 0) return slides.length - 1;
+      return Math.max(prev - 1, 0);
+    });
+  }
+
+  function checkEvent(e) {
+    if (e?.nativeEvent instanceof PointerEvent) pauseAutoSlider();
+  }
+
+  function startAutoSlider() {
+    clearInterval(autoSlide);
+    setAutoSlide(setInterval(nextSlide, 4000));
+  }
+  function pauseAutoSlider() {
+    if (!autoSlide) return;
+
+    setAutoSlide(clearInterval(autoSlide));
+    setTimeout(startAutoSlider, 3000);
   }
 
   swiper.onSwipeRight = prevSlide;
@@ -29,7 +55,9 @@ const HeroCarousal = () => {
   useEffect(() => {
     if (carousalRef.current) {
       setSwiper(new SwipeCarousel(carousalRef.current, 80));
+      startAutoSlider();
     }
+    // eslint-disable-next-line
   }, []);
 
   return (
