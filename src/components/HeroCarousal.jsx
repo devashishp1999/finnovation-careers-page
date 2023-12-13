@@ -6,13 +6,16 @@ import Icon from "./Icon";
 import { SwipeCarousel, px } from "utils-deva";
 import useScreenSize from "../hooks/useScreenSize";
 
-const slides = IMAGES.cImage.map((el, i) => ({ id: i + 1, img: el }));
+const slidesData = IMAGES.cImage.map((el, i) => ({ id: i + 1, img: el }));
+const slides = new Array(80).fill(slidesData).flat();
 
 const HeroCarousal = () => {
   const viewport = useScreenSize();
-  const [counter, setCount] = useState(0); // 0 to slides.length
-  const [dimen] = useState({ w: 320, h: 470, g: 20 });
   const [swiper, setSwiper] = useState(new SwipeCarousel());
+
+  const [counter, setCount] = useState(Math.floor(slides.length / 2)); // 0 to slides.length
+
+  const [dimen] = useState({ w: 320, h: 470, g: 20 });
 
   const [autoSlide, setAutoSlide] = useState(null);
 
@@ -49,19 +52,51 @@ const HeroCarousal = () => {
     setTimeout(startAutoSlider, 3000);
   }
 
+  function allClear() {
+    var rect = carousalRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    var viewHeight = Math.max(
+      document.documentElement.clientHeight,
+      window.innerHeight
+    );
+    const counter = +getComputedStyle(
+      document.querySelector(".hero_carousal .slider").lastChild
+    ).getPropertyValue("--at");
+    return (
+      (rect.bottom < 0 || rect.top - viewHeight >= 0) &&
+      (counter < 100 || counter >= slides.length - slidesData.length)
+    );
+  }
+
   swiper.onSwipeRight = prevSlide;
   swiper.onSwipeLeft = nextSlide;
 
   useEffect(() => {
+    if (viewport === "mobile") setCount(Math.ceil(counter / 2));
+    // eslint-disable-next-line
+  }, [viewport]);
+
+  useEffect(() => {
     if (carousalRef.current) {
       setSwiper(new SwipeCarousel(carousalRef.current, 80));
+
       startAutoSlider();
+
+      document.addEventListener("mousemove", () => {
+        if (allClear()) setCount(Math.floor(slides.length / 2));
+      });
     }
+
+    return () => {
+      document.removeEventListener("mousemove", () => {
+        if (allClear()) setCount(Math.floor(slides.length / 2));
+      });
+    };
     // eslint-disable-next-line
   }, []);
 
   return (
-    <div className="carousal" ref={carousalRef}>
+    <div className="carousal hero_carousal" ref={carousalRef}>
       <p id="msg"></p>
       <div
         className="slider"
@@ -78,13 +113,14 @@ const HeroCarousal = () => {
 
           return (
             <div
-              key={id}
+              key={i}
               id={"slide-" + id}
               className={`slide ${isOff ? "back" : ""} ${active}`}
               style={{
                 ...(viewport == "mobile"
                   ? { "--offset": px(offset) }
                   : { "--offset": px(!isOff ? offset : 0) }),
+                ...{ "--at": Math.abs(i - counter) },
               }}
             >
               <img src={img} alt="slide" loading="lazy" />
@@ -92,16 +128,16 @@ const HeroCarousal = () => {
           );
         })}
       </div>
+
       <div className="controls">
         <button onClick={prevSlide} aria-label="Previous slide">
           <Icon src={IMAGES.arrowBack} />
         </button>
         <div className="index">
-          {slides.map((_, i) => (
+          {slidesData.map((_, i) => (
             <span
               key={i}
-              className={i == counter ? "active" : ""}
-              onClick={() => setCount(i)}
+              className={i == counter % slidesData.length ? "active" : ""}
             />
           ))}
         </div>
