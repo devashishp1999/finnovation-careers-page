@@ -8,7 +8,7 @@ export const cultureImages = [
   require("../assets/culture_images/image5.jpeg"),
 ];
 
-export const companyCultureImages = [
+export const sliderCultureImages = [
   "https://websitevideos2020.s3.ap-south-1.amazonaws.com/career-web-site-immages/IMG_20230803_212056+(1).jpg",
   "https://websitevideos2020.s3.ap-south-1.amazonaws.com/career-web-site-immages/IMG_20230913_125259.jpg",
   "https://websitevideos2020.s3.ap-south-1.amazonaws.com/career-web-site-immages/IMG_20230921_205815.jpg",

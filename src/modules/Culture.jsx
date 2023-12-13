@@ -2,11 +2,18 @@ import React, { useEffect, useState } from "react";
 import useScreenSize from "../hooks/useScreenSize";
 import html2canvas from "html2canvas";
 import { $ } from "utils-deva";
-import { cultureImages } from "../resources/data.json";
+import { cultureImages, sliderCultureImages } from "../resources/data.json";
+import ImageSlider from "../components/ImageSlider";
+
+const sliderImages = sliderCultureImages.map((el, i) => ({
+  id: i + 1,
+  img: el,
+}));
 
 const Culture = () => {
   const viewport = useScreenSize();
   const [SS, setSS] = useState("");
+  const [showSlider, setShowSlider] = useState(false);
 
   const [imageOnLoad, setImageOnLoad] = useState("00000"); // each '0' for each images' loaded state
 
@@ -126,8 +133,17 @@ const Culture = () => {
           <img className="after" src={SS} alt="After" />
         </div>
 
-        <button aria-label="Explore more Images">Explore more</button>
+        <button aria-label="Explore more Images" onClick={setShowSlider}>
+          Explore more
+        </button>
       </div>
+
+      {showSlider && (
+        <ImageSlider
+          images={sliderImages}
+          closeSlider={() => setShowSlider(false)}
+        />
+      )}
     </section>
   );
 };
